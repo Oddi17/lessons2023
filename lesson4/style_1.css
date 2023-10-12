@@ -1,0 +1,26 @@
+p {
+    font-size: 20px;
+}
+
+li{
+    text-decoration: underline;
+    font-size: 40px;
+    font-weight: bold;
+}
+h1{
+    color:green;
+}
+
+#first {
+    font-size: 40px;
+    font-weight: bold;
+}
+#second {
+    color:red;
+}
+#third {
+    text-decoration: underline;
+    font-size: 40px;
+    font-weight: bold;
+
+}
