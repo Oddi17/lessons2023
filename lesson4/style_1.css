@@ -4,7 +4,9 @@ p {
 
 li{
     text-decoration: underline;
-    font-size: 40px;
+    /* font-size: 40px; */
+}
+p,li {
     font-weight: bold;
 }
 h1{
@@ -12,15 +14,17 @@ h1{
 }
 
 #first {
-    font-size: 40px;
+    /* font-size: 40px; */
     font-weight: bold;
 }
-#second {
+.red {
     color:red;
 }
 #third {
     text-decoration: underline;
-    font-size: 40px;
-    font-weight: bold;
+    /* font-size: 40px; */
 
+}
+.small-text {
+    font-weight: normal;
 }

@@ -2,6 +2,7 @@
     color:yellow;
 }
 .main {
+    background: red;
     color:red;
 }
 .main div>ul {
