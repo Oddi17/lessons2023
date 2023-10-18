@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing-page</title>
+    <title>Landing page</title>
+    <link rel="stylesheet" href="css/library.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap"
-      rel="stylesheet" 
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
     />
   </head>
   <body>
@@ -17,19 +26,125 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <img src="images/logo.svg" />
+            <img class="logo__img" src="images/logo.svg" alt="" />
             <div class="logo__title">Untitled UI</div>
           </div>
           <div class="menu">
             <div>Home</div>
-            <div>Products <img src="images/chevron.svg" /></div>
-            <div>Resources <img src="images/chevron.svg" /></div>
+            <div class="leveled">Products</div>
+            <div class="leveled">Resources</div>
             <div>Pricing</div>
           </div>
         </div>
         <div class="header-nav">
           <div class="button">Log in</div>
           <div class="button button-primary">Sign up</div>
+        </div>
+      </div>
+    </div>
+    <section class="pricing-plans">
+      <div class="container">
+        <div class="heading-badge">
+          <div class="label">Pricing plans</div>
+          <h1>Plans for all sizes</h1>
+        </div>
+        <div class="supporting-text">
+          Simple, transparent pricing that grows with you. Try any plan free for
+          30 days.
+        </div>
+        <div class="annual-pricing">
+          <div class="toggle">
+            <div></div>
+          </div>
+          &nbsp;Annual pricing <span>(save 20%)</span>
+        </div>
+      </div>
+    </section>
+    <section class="tariffs">
+      <div class="container">
+        <div class="pricing-card">
+          <div class="pricing-card__content">
+            <img src="images/zap.svg" />
+            <h3>Basic plan</h3>
+            <h1>$10/mth</h1>
+            <div class="supporting-text">Billed annually.</div>
+            <ul>
+              <li>Access to all basic features</li>
+              <li>Basic reporting and analytics</li>
+              <li>Up to 10 individual users</li>
+              <li>20GB individual data each user</li>
+              <li>Basic chat and email support</li>
+            </ul>
+          </div>
+          <div class="pricing-card__footer">
+            <div class="button button-primary">Get started</div>
+          </div>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-card__content">
+            <img src="images/zap.svg" />
+            <h3>Basic plan</h3>
+            <h1>$20/mth</h1>
+            <div class="supporting-text">Billed annually.</div>
+            <ul>
+              <li>200+ integrations</li>
+              <li>Advanced reporting and analytics</li>
+              <li>Up to 20 individual users</li>
+              <li>40GB individual data each user</li>
+              <li>Priority chat and email support</li>
+            </ul>
+          </div>
+          <div class="pricing-card__footer">
+            <div class="button button-primary disabled">Get started</div>
+          </div>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-card__content">
+            <img src="images/zap.svg" />
+            <h3>Basic plan</h3>
+            <h1>$20/mth</h1>
+            <div class="supporting-text">Billed annually.</div>
+            <ul>
+              <li>200+ integrations</li>
+              <li>Advanced reporting and analytics</li>
+              <li>Up to 20 individual users</li>
+              <li>40GB individual data each user</li>
+              <li>Priority chat and email support</li>
+            </ul>
+          </div>
+          <div class="pricing-card__footer">
+            <div class="button button-primary">Get started</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="fade">
+      <div class="modal">
+        <div class="content payment">
+          <section class="card">
+            <div class="bank-card">
+              <div class="head-card">
+                <div class="title">Untitled.</div>
+                <div class="pay-pass">
+                  <img src="images/pay-pass.svg" alt="" />
+                </div>
+              </div>
+              <div class="hold-container">
+                <div class="holder">
+                  <div class="holder__content">
+                    <div class="holder__text">
+                      <span>OLIVIA RHYE</span>
+                      <span>06/24</span>
+                    </div>
+                    <div>1234 1234 1234 1234</div>
+                  </div>
+                </div>
+                <div class="master__img">
+                  <img src="images/master.svg" />
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
