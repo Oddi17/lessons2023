@@ -154,22 +154,27 @@
               <form>
                 <div class="row__first">
                   <div class="name">
-                    <span>Name on card</span>
-                    <input class="big" type="text" name="card_username" />
+                    <label for="name_on_card">Name on card</label>
+                    <!-- <span>Name on card</span> -->
+                    <input class="big" type="text" name="card_username" id="name_on_card" placeholder="Olivia Rhye"/>
+                    <div class="hint">This is a hint text to help user.</div>
                   </div>
                   <div class="expire">
-                    <span>Expiry</span>
-                    <input class="small" type="text" name="expiry" />
+                    <label for="expiry" >Expiry</label>
+                    <!-- <span>Expiry</span> -->
+                    <input class="small" type="text" name="expiry" id="expiry" placeholder="06 / 2024"/>
                   </div>
                 </div>
                 <div class="row__second">
                   <div class="number">
-                    <span>Card number</span>
-                    <input class="big" type="text" name="card_number" />
+                    <label for="card_number" >Card number</label>
+                    <!-- <span>Card number</span> -->
+                    <input class="big" type="text" name="card_number" id="card_number" placeholder="1234 1234 1234 1234" />
                   </div>
                   <div class="CVV">
-                    <span>CVV</span>
-                    <input class="small" type="text" name="cvv" />
+                    <!-- <span>CVV</span> -->
+                    <label for="cvv" >CVV</label>
+                    <input class="small" type="password" name="cvv" id="cvv" placeholder="•••" />
                   </div>
                 </div>
               </form>

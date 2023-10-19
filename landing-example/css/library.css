@@ -86,13 +86,40 @@ body {
   width: 210px;
   height: 44px;
 }
+
 .button-primary.butpay:first-child {
   background: white;
   border: 1px solid #d0d5dd;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   color: #344054;
 }
-.button-primary.butpay:first-child:hover{
-    background: gray;
-    border: 1px solid #62656b;
+
+.button-primary.butpay:first-child:hover {
+  background: gray;
+  border: 1px solid #62656b;
+}
+
+/*form*/
+
+.payment_form input {
+  outline: none;
+}
+
+/*input*/
+
+.payment_form label {
+  display: block;
+}
+
+.payment_form input::placeholder {}
+
+.payment_form .hint {
+  color: #667085;
+  margin-top: 6px ;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
 }

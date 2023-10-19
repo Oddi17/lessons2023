@@ -73,6 +73,7 @@
   padding: 96px 0;
   text-align: center;
 }
+
 .label {
   display: inline-block;
   background: #f4ebff;
@@ -145,7 +146,7 @@
   text-align: center;
 }
 
-.pricing-card__content > img {
+.pricing-card__content>img {
   width: 40px;
 }
 
@@ -251,11 +252,9 @@ section.card {
   border-radius: 20px;
   border: 1px solid #fff;
 
-  background: linear-gradient(
-    113deg,
-    rgba(255, 255, 255, 0.51) 3.51%,
-    rgba(255, 255, 255, 0) 111.71%
-  );
+  background: linear-gradient(113deg,
+      rgba(255, 255, 255, 0.51) 3.51%,
+      rgba(255, 255, 255, 0) 111.71%);
 
   box-shadow: 8px 10px 16px 0px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(6px);
@@ -265,6 +264,7 @@ section.card {
   display: flex;
   justify-content: space-between;
 }
+
 .holder {
   display: inline-block;
   margin-top: 84px;
@@ -282,10 +282,12 @@ section.card {
   letter-spacing: 0.6px;
   margin-bottom: 8px;
 }
-.holder__text > span {
+
+.holder__text>span {
   text-transform: uppercase;
 }
-.holder div + div {
+
+.holder div+div {
   letter-spacing: 2.4px;
   color: #fff;
   font-family: Manrope;
@@ -295,6 +297,7 @@ section.card {
   line-height: normal;
   letter-spacing: 2.4px;
 }
+
 .bank-card div:last-child .master__img {
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.1);
@@ -303,18 +306,22 @@ section.card {
   text-align: center;
   padding: 6.707px 7.523px 7.427px 8px;
 }
+
 .pay-pass {
   width: 20px;
   height: 24px;
 }
+
 .hold-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
+
 section .payment__text {
   margin: 20px auto;
 }
+
 .payment__text div:first-child {
   color: #101828;
   /* font-family: Inter; */
@@ -324,6 +331,7 @@ section .payment__text {
   line-height: 28px;
   margin-bottom: 8px;
 }
+
 .payment__text div:last-child {
   color: #667085;
   /* font-family: Inter; */
@@ -332,29 +340,34 @@ section .payment__text {
   font-weight: 400;
   line-height: 20px;
 }
+
 .payment_form {
-  width: 432px;
-  height: 156px;
+  /* width: 432px; */
+  /* height: 156px; */
 }
+
 .payment_form .row__first {
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
 }
+
 .payment_form .row__second {
   display: flex;
   gap: 16px;
   /* margin-bottom: 32px; */
 }
-.payment_form span {
+
+.payment_form label {
   color: #344054;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  margin-bottom: 6px;
 }
 
 .payment_form form input {
-  margin-top: 6px;
+  /* margin-top: 6px; */
   color: #101828;
   font-size: 16px;
   font-weight: 400;
@@ -365,16 +378,19 @@ section .payment__text {
   font-family: Inter;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
+
 .payment_form form input.big {
   width: 304px;
   height: 44px;
   padding: 10px 14px;
 }
+
 .payment_form form input.small {
   width: 112px;
   height: 44px;
   padding: 10px 14px;
 }
+
 .payment__buttons {
   display: flex;
   gap: 12px;
