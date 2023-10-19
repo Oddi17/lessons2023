@@ -308,9 +308,75 @@ section.card {
   height: 24px;
 }
 .hold-container {
-    display: flex;
-    justify-content: space-between;
-    align-items:flex-end;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+section .payment__text {
+  margin: 20px auto;
+}
+.payment__text div:first-child {
+  color: #101828;
+  /* font-family: Inter; */
+  font-size: 18px;
+  /* font-style: normal; */
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+.payment__text div:last-child {
+  color: #667085;
+  /* font-family: Inter; */
+  font-size: 14px;
+  /* font-style: normal; */
+  font-weight: 400;
+  line-height: 20px;
+}
+.payment_form {
+  width: 432px;
+  height: 156px;
+}
+.payment_form .row__first {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.payment_form .row__second {
+  display: flex;
+  gap: 16px;
+  /* margin-bottom: 32px; */
+}
+.payment_form span {
+  color: #344054;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
 
+.payment_form form input {
+  margin-top: 6px;
+  color: #101828;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  font-family: Inter;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.payment_form form input.big {
+  width: 304px;
+  height: 44px;
+  padding: 10px 14px;
+}
+.payment_form form input.small {
+  width: 112px;
+  height: 44px;
+  padding: 10px 14px;
+}
+.payment__buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
 }

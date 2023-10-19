@@ -120,7 +120,7 @@
     </section>
     <div class="fade">
       <div class="modal">
-        <div class="content payment">
+        <div class="content__payment">
           <section class="card">
             <div class="bank-card">
               <div class="head-card">
@@ -143,6 +143,40 @@
                   <img src="images/master.svg" />
                 </div>
               </div>
+            </div>
+          </section>
+          <section class="payment">
+            <div class="payment__text">
+              <div>Update payment method</div>
+              <div>Update your card details.</div>
+            </div>
+            <div class="payment_form">
+              <form>
+                <div class="row__first">
+                  <div class="name">
+                    <span>Name on card</span>
+                    <input class="big" type="text" name="card_username" />
+                  </div>
+                  <div class="expire">
+                    <span>Expiry</span>
+                    <input class="small" type="text" name="expiry" />
+                  </div>
+                </div>
+                <div class="row__second">
+                  <div class="number">
+                    <span>Card number</span>
+                    <input class="big" type="text" name="card_number" />
+                  </div>
+                  <div class="CVV">
+                    <span>CVV</span>
+                    <input class="small" type="text" name="cvv" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="payment__buttons">
+              <div class="button button-primary butpay">Cancel</div>
+              <div class="button button-primary butpay">Update</div>
             </div>
           </section>
         </div>
