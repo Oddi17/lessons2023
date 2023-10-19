@@ -101,7 +101,7 @@ body {
 .home__content .home__text div span {
   color: #685ed6;
 }
-.home__content .button {
+.button {
   display: inline-block;
   color: #fff;
   text-align: center;
@@ -110,22 +110,60 @@ body {
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.07);
   /* opacity:1; */
   transition: opacity 1s ease 0s;
+  cursor: pointer;
 }
-.home__content .button:hover {
+.button:hover {
   opacity: 0.6;
 }
-.home__content .button.home {
+.button.home {
   font-feature-settings: "salt" on, "liga" off;
   padding: 12px 32px;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
 }
+
+.button.button__menu {
+  padding: 10px 20px;
+  font-feature-settings: "salt" on, "clig" off, "liga" off;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.button.button__menu.log {
+  color: #685ed6;
+  background: #f1e4ff;
+  margin-right: 11px;
+}
+
+.menu.unautorization {
+  margin-right: 156px;
+  margin-top: 32px;
+}
+
 .ilustration {
   margin-top: 125px;
   margin-right: 142px;
   width: 690px;
   height: 555px;
+}
+.text__block {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.text__block img {
+  width: 68px;
+}
+.text__block .block {
+  height: 92px;
+  width: 522px;
+  display: flex;
+  gap:26px;
+
+}
+.text__block h2 {
+  margin: 0;
 }
 /* 
 .ilustration .phone {
