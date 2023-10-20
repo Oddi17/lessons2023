@@ -1,18 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  font-family: Manrope;
-  color: #1d2530;
-  background: rgba(242, 247, 255, 0.5);
-  backdrop-filter: blur(50px);
+section.starting {
+  height: 809px;
 }
 .header {
   display: flex;
   margin: 0 auto;
   font-style: normal;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* align-items: center; */
 }
 .header .logo {
@@ -21,7 +14,7 @@ body {
   width: 109px;
   height: 30px;
   margin-top: 44px;
-  margin-left: 157px;
+  /* margin-left: 157px; */
 }
 .header .logo img {
   width: 33px;
@@ -42,17 +35,11 @@ body {
   margin: 5px 41px 0px 3px;
 }
 
-/* .header .logo div::before{
-    content: "";
-    background: url("../images/logo.svg");
-} */
-
 .menu {
   display: flex;
 }
 .menu.autorization {
   margin-top: 44px;
-  margin-right: 166px;
   /* color: #1d2530; */
   width: 540px;
   height: 26px;
@@ -60,6 +47,7 @@ body {
   font-size: 20px;
   font-weight: 400;
   line-height: 26px;
+  margin-left: 758px;
 }
 .menu.autorization div {
   transition: transform 1s ease 0s;
@@ -74,9 +62,6 @@ body {
 .home {
   display: flex;
   justify-content: space-between;
-}
-.home__content {
-  margin-left: 165px;
 }
 
 .home__content .home__text div:first-child {
@@ -95,12 +80,14 @@ body {
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
+  height: 102px;
   width: 489px;
   margin-bottom: 32px;
 }
 .home__content .home__text div span {
   color: #685ed6;
 }
+
 .button {
   display: inline-block;
   color: #fff;
@@ -135,56 +122,185 @@ body {
   background: #f1e4ff;
   margin-right: 11px;
 }
-
+.home__content .button.home {
+  font-feature-settings: "salt" on, "liga" off;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
 .menu.unautorization {
-  margin-right: 156px;
   margin-top: 32px;
+  margin-left: 758px;
 }
 
-.ilustration {
-  margin-top: 125px;
-  margin-right: 142px;
+img.illustration_home {
+  position: absolute;
+  top: 0;
+  transform: translate(362px, 167px);
   width: 690px;
   height: 555px;
 }
-.text__block {
+
+/* second_page */
+section.info {
+  height: 819px;
+}
+.info__content {
+  position: relative;
+  display: flex;
+  gap: 152.64px;
+}
+.info__title h1 {
+  display: inline-block;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 32px;
+  margin-bottom: 68px;
+}
+
+.text__blocks {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
-.text__block img {
+.text__blocks .block img {
   width: 68px;
+  height: 68px;
 }
-.text__block .block {
+.text__blocks .block {
   height: 92px;
   width: 522px;
   display: flex;
-  gap:26px;
+  gap: 26px;
+  font-feature-settings: "salt" on, "liga" off;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.text__blocks .block h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+.info__illustration img:first-child {
+  /* position: absolute; */
+  left: 0;
+  transform: translateY(18.71px);
+  width: 334.824px;
+  height: 224.755px;
+}
+.info__illustration img:nth-child(2) {
+  position: absolute;
+  left: 0;
+  transform: translate(677px, 0px);
+  z-index: -85;
+  width: 329.437px;
+  height: 666.578px;
+}
+.info__illustration img:nth-child(3) {
+  position: absolute;
+  left: 0;
+  width: 288.642px;
+  height: 623.523px;
+  transform: translate(696px, 20.76px);
+}
+.info__illustration .messages {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 15px; 
+}
+.info__illustration .message_to div {
+  /* display: inline-flex; */
+  padding: 4.807px 7.233px 5.352px 9.613px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4.807px;
+  border-radius: 0px 5px 5px 5px;
+  background: #effcde;
+  box-shadow: 0px 4px 10px 0px rgba(142, 142, 147, 0.25);
+}
+.info__illustration .message_from div {
+  /* display: inline-flex; */
+  padding: 4.807px 7.233px 5.352px 9.613px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4.807px;
+  border-radius: 4px 0px 4px 4px;
+  background: #f5f7f8;
+  box-shadow: 0px 0.80114px 0.80114px 0px rgba(0, 0, 0, 0.25);
+}
+.info__illustration .messages div > span {
+  font-weight: 700;
+}
+.info__illustration .messages div span:last-child {
+  color: #8e8e93;
+  font-size: 6.409px;
+  font-weight: 400;
+  line-height: 8.011px;
+}
+.info__illustration .message_to div:first-child {
+  position: absolute;
+  left: 0;
+  transform: translate(605px, -103.24px);
+  width: 339px;
+  height: 34px;
+}
+.info__illustration .message_to div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  transform: translate(647px, 31px);
+  width: 298px;
+  height: 34px;
+}
+.info__illustration .message_to div:nth-child(3) {
+  position: absolute;
+  left: 0;
+  transform: translate(614px, 124px);
+  width: 291px;
+  height: 34px;
+}
+.info__illustration .message_to div:nth-child(4) {
+  position: absolute;
+  left: 0;
+  transform: translate(667px, 203px);
+  width: 207px;
+  height: 34px;
+}
+.info__illustration .message_to div:nth-child(5) {
+  position: absolute;
+  left: 0;
+  transform: translate(708px, 335px);
+  width: 256px;
+  height: 32px;
+}
 
+.info__illustration .message_from div:first-child {
+  position: absolute;
+  left: 0;
+  transform: translate(708px, -62.24px);
+  width: 265px;
+  height: 83px;
 }
-.text__block h2 {
-  margin: 0;
+.info__illustration .message_from div:nth-child(2) {
+  position: absolute;
+  left: 0;
+  transform: translate(708px, 75px);
+  width: 266px;
+  height: 39px;
 }
-/* 
-.ilustration .phone {
-  display: inline-block;
-  margin-right: 254.32px;
-  margin-top: 0.4px;
-  margin-bottom: 126.06px;
-  margin-left: 176.89px;
-  width: 259px;
-  height: 429px;
+.info__illustration .message_from div:nth-child(3) {
+  position: absolute;
+  left: 0;
+  transform: translate(702px, 166px);
+  width: 273px;
+  height: 28px;
 }
-.ilustration .phone > img {
-  width: 258.79px;
-  height: 428.541px;
+.info__illustration .message_from div:nth-child(4) {
+  position: absolute;
+  left: 0;
+  transform: translate(708px, 244px);
+  width: 266px;
+  height: 83px;
 }
-.ilustration .phone img:nth-child(2)  {
-  width: 57.044px;
-  height: 9.954px;
-  margin-bottom: 40px;
-}
-.ilustration .phone img:nth-child(3) {
-  width: 152.519px;
-  height: 16.387px;
-} */
