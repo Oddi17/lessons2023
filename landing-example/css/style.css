@@ -66,6 +66,9 @@
   margin: 18px 0;
 }
 
+.hidden{
+  visibility: hidden;
+}
 /* section-1 */
 
 .pricing-plans {
