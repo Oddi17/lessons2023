@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope';
+    color: #1D2530;
+    font-style: normal;
+}
+
+.modal__cross img {
+    position: absolute;
+    right:24px;
+    top:24px;
+
+}
+
+.modal__header {
+    margin-top:49px;
+    color: #685ED6;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 32px;
+    margin-bottom:32px;
+}
+
+.window__modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 480px;
+    height: 502px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.07);
+}
+
+
+
+.modal__button {
+    width: 343px;
+    padding: 12px 32px;
+    border-radius: 6px;
+    background: #685ED6;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.07);
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 32px;
+}
+
+.modal__input{
+
+
+}
+.form__tel{
+    display: flex;
+    width: 340px;
+    height: 40px;
+    padding: 16px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 4px;
+    background: #F7F7FD;
+}
+
+.form__tel input{
+    gap: 10px;
+    align-self: stretch;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; 
+}
+
+.form__pass input:active{
+
+}
