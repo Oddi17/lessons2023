@@ -1,4 +1,4 @@
-@media only screen and (width:375px) {
+@media only screen and (min-width:375px) and (max-width:400px) {
     section {
         padding: 0 16px !important;
         margin: 0px !important;
@@ -76,10 +76,6 @@
         flex-direction: column;
 
     }
-
-    /* .mini_blocks .block .content__block__text .content__block__text__many {
-        width: auto;
-    } */
 
     .block .content__block__text .content__block__text__zagol {
         color: var(--gray-900, #101828);
