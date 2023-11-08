@@ -146,9 +146,9 @@
     }
 
     let toggleNav = (index) => {
-      indexShow = index
+      // indexShow = index
       let $NavItem = arrayNavOfItems[index]
-      if (!$NavItem.querySelector('.nav-link').classList.contains('active')) {
+      if (!$NavItem.querySelector('.nav-link').classList.contains('disabled')) {
         if ($NavItem.querySelector('.nav-link').classList.contains('active')) {
           // скрываем
           $NavItem.querySelector('.nav-link').classList.remove('active')
