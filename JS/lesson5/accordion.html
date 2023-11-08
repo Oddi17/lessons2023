@@ -144,7 +144,7 @@
         $accordionItem.children[0].children[0].classList.remove('collapsed')
       }
     }
-    
+
     let toggleNav = (index) => {
       // indexShow = index
       let $NavItem = arrayNavOfItems[index]
@@ -162,26 +162,19 @@
         }
       }
     }
-    let toggleNavAnother = () => {
-      // indexShow = index
-      // let $NavItem = arrayNavOfItems[index]
-      let $NavItem = arrayNavOfItems
-      if (!$NavItem.querySelector('.nav-link').classList.contains('disabled')) {
-        if ($NavItem.querySelector('.nav-link').classList.contains('active')) {
-          // скрываем
-          $NavItem.querySelector('.nav-link').classList.remove('active')
-        } else {
-          for (let i = 0; i < arrayNavOfItems.length; i++) {
-            arrayNavOfItems[i]
-              .querySelector('.nav-link')
-              .classList.remove('active')
-          }
-          $NavItem.querySelector('.nav-link').classList.add('active')
-        }
+
+    // const element = document.querySelector('.nav-item')
+    // document.querySelector('.nav-item').addEventListener("click",() => {alert()})
+    for (i = 0; i < arrayNavOfItems.length; i++) {
+      if (
+        !arrayNavOfItems[i]
+          .querySelector('.nav-link')
+          .classList.contains('disabled')
+      ) {
+        arrayNavOfItems[i].addEventListener('click', () => {
+          alert()
+        })
       }
     }
-    const element = document.querySelector('.nav-item')
-    document.querySelector('.nav-item').addEventListener("click",() => {alert()})
-
   </script>
 </html>
