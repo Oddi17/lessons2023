@@ -1,6 +1,12 @@
-const images = ['img1.jpg', 'img2.jpg', 'img3.jpg']
-
-let createCarousel = (elemid, images) => {
+import './carousel.css'
+export function createCarousel(elemid, images, options) {
+  if (!options) {
+    options = {
+      loop: 1,
+      indicators: 1,
+      controls: 1,
+    }
+  }
   const $mainCountainer = document.getElementById(elemid)
 
   // создание carousel
@@ -17,27 +23,37 @@ let createCarousel = (elemid, images) => {
   const $controlElements = document.createElement('div')
   $controlElements.className = 'carousel-controls'
   $controlElements.innerHTML = ` 
-      <div class="controls prev"><</div>
-      <div class="controls next">></div>
-  `
+        <div class="controls prev"><</div>
+        <div class="controls next">></div>
+    `
 
-  //создание индикаторов
+  // создание индикаторов
   const $indicatorsContainer = document.createElement('div')
   $indicatorsContainer.className = 'carousel-indicators'
   $indicatorsContainer.innerHTML = `
-      <div class="dot active"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-  `
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    `
+  // const $indicatorElement = document.createElement('div')
+  // $indicatorElement .className = 'carousel-indicators'
+  // images.forEach((elem,i) =>{
+  //   $indicatorElement .innerHTML += '
+
+  //   '
+  // })
+
+  let $wrapper = document.createElement('div')
+  $wrapper.className = 'carousel'
 
   //добавление в html файл
-  $mainCountainer.append($carouselContainer)
-  $mainCountainer.append($controlElements)
-  $mainCountainer.append($indicatorsContainer)
-
+  $wrapper.append($carouselContainer)
+  if(options.controls) $wrapper.append($controlElements)
+  $wrapper.append($indicatorsContainer)
+  $mainCountainer.append($wrapper)
   let itemWidth = $carouselContainer.offsetWidth
   let translate = 0
-  let loop = 1
+  // let loop = 1
   let imgQuantity = $carouselContainer.children.length
   let currentImg = 0
 
@@ -60,7 +76,7 @@ let createCarousel = (elemid, images) => {
       if (translate !== 0) {
         translate += itemWidth
       } else {
-        if (loop) translate = (imgQuantity - 1) * itemWidth * -1
+        if (options.loop) translate = (imgQuantity - 1) * itemWidth * -1
       }
     } else if (e.target.classList.contains('next')) {
       //перемотка
@@ -87,5 +103,3 @@ let createCarousel = (elemid, images) => {
     element.addEventListener('click', controlsClickHandler)
   })
 }
-
-createCarousel('carousel_1', images)
