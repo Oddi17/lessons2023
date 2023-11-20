@@ -9,13 +9,13 @@ const initTooltip = () => {
     let tooltipTex = $eleme.innerText
     box.innerHTML =
       '<span>Нажмите на кнопку для перехода в ' + tooltipTex + '</span>'
+      box.style.opacity = '1'
     $eleme.append(box)
   }
 
   const toolMouseOutHandler = (e) => {
     let $eleme = e.currentTarget
     $eleme.querySelector('.box').remove()
-
   }
 
   const $plashtooltip = document.querySelectorAll('.tooltip')
