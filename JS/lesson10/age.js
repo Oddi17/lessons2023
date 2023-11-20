@@ -15,11 +15,10 @@ const calc = () => {
   years = Math.floor(timeDiff / 1000 / 3600 / 24 / 365)
   result += years
   let last_num_string = years.toString().slice(-1)
-  console.log(last_num_string)
+  // console.log(last_num_string)
   if (last_num_string == 0 || last_num_string > 4) {
     result += ' лет, '
   } else last_num_string == 1 ? (result += ' год, ') : (result += ' года, ')
-  
 
   let days =
     Math.floor(timeDiff / 1000 / 3600 / 24) -
@@ -31,12 +30,12 @@ const calc = () => {
   } else {
     last_num_string == 1 ? (result += ' день, ') : (result += ' дня, ')
   }
-  
-  let today = currentTime.getHours() 
+
+  let today = currentTime.getHours()
   let togda = birthDateTime.getHours()
-  console.log(today) 
-  console.log(togda) 
-  let hours = today- togda
+  // console.log(today)
+  // console.log(togda)
+  let hours = today - togda
 
   // let hours =
   //   (timeDiff / 1000 / 3600) - (365 * 24 * Math.floor(timeDiff / 1000 / 3600 / 24 / 365))
@@ -49,23 +48,55 @@ const calc = () => {
   } else {
     last_num_string == 1 ? (result += ' час') : (result += ' часа')
   }
-  console.log(result)
-  
+  // console.log(result)
 
   //знак зодиака
   let retZod = 'Ваш знак по гороскопу: '
-  const zodiacs = ['Водолей','Рыбы','Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог']
-  d = [19,20,20,21,21,22,21,23,23,22,22,20]
-  
+  const zodiacs = [
+    'Водолей',
+    'Рыбы',
+    'Овен',
+    'Телец',
+    'Близнецы',
+    'Рак',
+    'Лев',
+    'Дева',
+    'Весы',
+    'Скорпион',
+    'Стрелец',
+    'Козерог',
+  ]
+  d = [20, 18, 20, 20, 21, 21, 22, 23, 22, 23, 22, 21]
+
   const month = birthDateTime.getMonth()
   const Day = birthDateTime.getDate()
-  Day > d[month] ? retZod += zodiacs[month] : retZod += zodiacs[month-1]
-  console.log(retZod)
+  let itog_month = 0
+  // Day > d[month] ? retZod += zodiacs[month] : retZod += zodiacs[month-1]
+  // Day > d[month] ?  itog_month = month : itog_month = month-1
+  if (Day > d[month]) {
+    itog_month = month
+  } else {
+    itog_month = month - 1
+  }
+  if (itog_month < 0) {
+    retZod += zodiacs.pop()
+    // else if (itog_month < 0)
+  } else retZod += zodiacs[itog_month]
 
+  console.log(retZod)
+  // console.log(retZod)
+  return [result, retZod]
 }
 
+const ShowAge = () => {
+  let age, zodiac
+  AgeAndZodiac = calc()
+
+  console.log(AgeAndZodiac[0], AgeAndZodiac[1])
+}
 const $button = document.querySelector('.btn-primary')
 $button.addEventListener('click', (event) => {
   event.preventDefault()
-  calc()
+  // calc()
+  ShowAge()
 })
