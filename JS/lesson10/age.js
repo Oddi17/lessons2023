@@ -1,8 +1,8 @@
-document.querySelector('#birthDate').value
+// document.querySelector('#birthDate').value
 
-const calc = () => {
-  const birthDate = document.querySelector('#birthDate').value
-  if (birthDate === '') return
+const calc = (birthDate) => {
+  // const birthDate = document.querySelector('#birthDate').value
+  // if (birthDate === '') return
   let result = 'Ваш возраст: '
 
   let birthDateTime = new Date(birthDate)
@@ -89,10 +89,15 @@ const calc = () => {
 }
 
 const ShowAge = () => {
-  let age, zodiac
-  AgeAndZodiac = calc()
-
+  let age
+  let zodiac
+  const birthDate = document.querySelector('#birthDate').value
+  if (birthDate === '') return
+  AgeAndZodiac = calc(birthDate)
+  // age = AgeAndZodiac[0]
+  // zodiac = AgeAndZodiac[1]
   console.log(AgeAndZodiac[0], AgeAndZodiac[1])
+  // alert()
 }
 const $button = document.querySelector('.btn-primary')
 $button.addEventListener('click', (event) => {
