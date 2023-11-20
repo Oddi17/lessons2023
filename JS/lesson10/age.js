@@ -1,5 +1,3 @@
-// document.querySelector('#birthDate').value
-
 const calc = (birthDate) => {
   // const birthDate = document.querySelector('#birthDate').value
   // if (birthDate === '') return
@@ -7,7 +5,6 @@ const calc = (birthDate) => {
 
   let birthDateTime = new Date(birthDate)
   const currentTime = new Date()
-
   let timeDiff = currentTime - birthDateTime
 
   if (timeDiff < 0) return
@@ -15,26 +12,42 @@ const calc = (birthDate) => {
   years = Math.floor(timeDiff / 1000 / 3600 / 24 / 365)
   result += years
   let last_num_string = years.toString().slice(-1)
-  // console.log(last_num_string)
-  if (last_num_string == 0 || last_num_string > 4) {
+  if (
+    last_num_string == 0 ||
+    last_num_string > 4 ||
+    days == 11 ||
+    days == 12 ||
+    days == 13 ||
+    days == 14
+  ) {
     result += ' лет, '
-  } else last_num_string == 1 ? (result += ' год, ') : (result += ' года, ')
+  } else
+    last_num_string == 1 && days != 11 && days != 12 && days != 13 && days != 14
+      ? (result += ' год, ')
+      : (result += ' года, ')
 
   let days =
     Math.floor(timeDiff / 1000 / 3600 / 24) -
     365 * Math.floor(timeDiff / 1000 / 3600 / 24 / 365)
   result += days
   last_num_string = days.toString().slice(-1)
-  if (last_num_string == 0 || last_num_string > 4) {
+  if (
+    last_num_string == 0 ||
+    last_num_string > 4 ||
+    days == 11 ||
+    days == 12 ||
+    days == 13 ||
+    days == 14
+  ) {
     result += ' дней, '
   } else {
-    last_num_string == 1 ? (result += ' день, ') : (result += ' дня, ')
+    last_num_string == 1 && days != 11 && days != 12 && days != 13 && days != 14
+      ? (result += ' день, ')
+      : (result += ' дня, ')
   }
 
   let today = currentTime.getHours()
   let togda = birthDateTime.getHours()
-  // console.log(today)
-  // console.log(togda)
   let hours = today - togda
 
   // let hours =
@@ -43,12 +56,20 @@ const calc = (birthDate) => {
 
   result += hours
   last_num_string = hours.toString().slice(-1)
-  if (last_num_string == 0 || last_num_string > 4) {
+  if (
+    last_num_string == 0 ||
+    last_num_string > 4 ||
+    days == 11 ||
+    days == 12 ||
+    days == 13 ||
+    days == 14
+  ) {
     result += ' часов'
   } else {
-    last_num_string == 1 ? (result += ' час') : (result += ' часа')
+    last_num_string == 1 && days != 11 && days != 12 && days != 13 && days != 14
+      ? (result += ' час')
+      : (result += ' часа')
   }
-  // console.log(result)
 
   //знак зодиака
   let retZod = 'Ваш знак по гороскопу: '
@@ -72,7 +93,6 @@ const calc = (birthDate) => {
   const Day = birthDateTime.getDate()
   let itog_month = 0
   // Day > d[month] ? retZod += zodiacs[month] : retZod += zodiacs[month-1]
-  // Day > d[month] ?  itog_month = month : itog_month = month-1
   if (Day > d[month]) {
     itog_month = month
   } else {
@@ -80,28 +100,44 @@ const calc = (birthDate) => {
   }
   if (itog_month < 0) {
     retZod += zodiacs.pop()
-    // else if (itog_month < 0)
   } else retZod += zodiacs[itog_month]
-
-  console.log(retZod)
-  // console.log(retZod)
   return [result, retZod]
 }
 
 const ShowAge = () => {
-  let age
-  let zodiac
   const birthDate = document.querySelector('#birthDate').value
   if (birthDate === '') return
   AgeAndZodiac = calc(birthDate)
-  // age = AgeAndZodiac[0]
-  // zodiac = AgeAndZodiac[1]
-  console.log(AgeAndZodiac[0], AgeAndZodiac[1])
-  // alert()
+  let resultElem = document.querySelector('.result')
+  if (resultElem) {
+    resultElem.remove()
+  }
+  const $resultContainer = document.createElement('div')
+  $resultContainer.className = 'result'
+  $resultContainer.style.cssText = `
+  margin-top: 15px;
+  background: #6f8dd342;
+  font-family: Arial;
+  font-weight:bold;
+  padding: 10px;
+  border: solid rgb(106 148 211 / 54%);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center
+`
+  $resultContainer.children.style = 'display:inline-block'
+  // let age = '<span>'+AgeAndZodiac[0]+'</span>'
+  // let zodiac = '<span>'+AgeAndZodiac[1]+'</span>'
+  const $mainCountainer = document.querySelector('.container')
+  let arrayFromResult = Array.from($resultContainer.children)
+  // console.log($resultContainer)
+  AgeAndZodiac.forEach((elem, index) => {
+    $resultContainer.innerHTML += '<div>' + elem + '</div>'
+  })
+  $mainCountainer.append($resultContainer)
 }
 const $button = document.querySelector('.btn-primary')
 $button.addEventListener('click', (event) => {
   event.preventDefault()
-  // calc()
   ShowAge()
 })

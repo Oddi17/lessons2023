@@ -9,6 +9,8 @@ let createCarousel = (elemid, images, options) => {
     }
   }
   const $mainCountainer = document.getElementById(elemid)
+  let currentImg = 0
+  let translate = 0
 
   // создание carousel
   const $carouselContainer = document.createElement('div')
@@ -36,13 +38,15 @@ let createCarousel = (elemid, images, options) => {
       <div class="dot"></div>
       <div class="dot"></div>
   `
-  // const $indicatorElement = document.createElement('div')
-  // $indicatorElement .className = 'carousel-indicators'
-  // images.forEach((elem,i) =>{
-  //   $indicatorElement .innerHTML += '
+  //создание индикаторов
+  const $indicatorElement = document.createElement('div')
+  $indicatorElement.className = 'carousel-indicators'
 
-  //   '
-  // })
+  images.forEach((elem, i) => {
+    $indicatorElement.innerHTML += `
+       <div class="dot ${currentImg === i ? 'active' : ''}"></div>
+     `
+  })
 
   //добавление в html файл
   $mainCountainer.append($carouselContainer)
@@ -50,10 +54,10 @@ let createCarousel = (elemid, images, options) => {
   $mainCountainer.append($indicatorsContainer)
 
   let itemWidth = $carouselContainer.offsetWidth
-  let translate = 0
+  // let translate = 0
   // let loop = 1
   let imgQuantity = $carouselContainer.children.length
-  let currentImg = 0
+  // let currentImg = 0
 
   let updateIndicators = () => {
     let arrFromCollection = Array.from($indicatorsContainer.children)
@@ -81,7 +85,7 @@ let createCarousel = (elemid, images, options) => {
       if ((imgQuantity - 1) * itemWidth !== -translate) {
         translate -= itemWidth
       } else {
-        if (loop) translate = 0
+        if (options.loop) translate = 0
       }
     }
 
@@ -103,7 +107,7 @@ let createCarousel = (elemid, images, options) => {
 }
 
 createCarousel('carousel_1', images, {
-  loop: 0,
+  loop: 1,
   indicators: 1,
   controls: 1,
 })
