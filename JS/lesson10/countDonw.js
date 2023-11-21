@@ -36,6 +36,7 @@ const Timer = () => {
     if (days === hours === minutes === 0) {
       seconds = 0
       console.log('End of timer')
+      return
     }
     if (seconds === 0) seconds = 60
     $secondsTime.innerHTML = --seconds
