@@ -1,5 +1,91 @@
 .task {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  //   padding: 16px 24px;
+  border-bottom: 1px solid #eaecf0;
+  //   display: grid;
+  //   grid-template-columns: 369px 129px 402px 131px 137px 140px;
+  //   grid-template-rows: 1fr;
+  height: 72px;
+  width: auto;
+
+  color: #667085;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  .cell {
     padding: 16px 24px;
-    border-bottom: 1px solid #EAECF0;
-}   
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+  }
+  & .cell:first-child {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  & .cell:last-child {
+    display: flex;
+    gap: 4px;
+    padding: 16px;
+  }
+  & .cell:nth-child(n + 4) {
+    align-items: center;
+  }
+  & .title {
+    color: #101828;
+    font-weight: 500;
+  }
+  & .cell .avatar img {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+  }
+  & .cell input {
+    appearance: none; //скукоживает при сжатии
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1px solid #d0d5dd;
+    background: #fff;
+  }
+  & .cell input:checked {
+    border: 1px solid #7f56d9;
+    background: #f9f5ff;
+    padding: 3px;
+    background-image: url('./check.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .status {
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    padding: 2px 8px;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .done {
+    background: #ecfdf3;
+    color: #027a48;
+  }
+
+  .new {
+    background: #f2f4f7;
+    color: #344054;
+  }
+  .in_progress {
+    background: #f4ebff;
+    color: #6941c6;
+  }
+}

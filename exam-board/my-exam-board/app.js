@@ -2,8 +2,8 @@ import './style.css'
 import {createWorkspace} from './src/components/workspace/workspace.js'
 
 window.Store = {
-    tasks: [],
-    tasks2: [
+    //tasks: [],
+    tasks: [
         {
             id: '1',
             title: 'Поправить иконку на сайте',
