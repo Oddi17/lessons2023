@@ -1,6 +1,9 @@
 import './workspace.scss'
 import { createButton } from '../button/button'
 import {createTasklist} from '../tasklist/tasklist'
+import {createModal} from '../modal/modal'
+import { createAddTaskForm } from '../addtaskform/addtaskform'
+
 
 export const createWorkspace = () => {
 
@@ -17,6 +20,17 @@ export const createWorkspace = () => {
         `
 
     const addTaskButton = createButton('plus','Добавить задачу','primary') 
+
+    addTaskButton.addEventListener('click', ()=>{
+        const modalContainer = document.createElement('div')
+        modalContainer.className = 'modals fade'
+
+        const AddTaskForm = createAddTaskForm()
+
+        modalContainer.append(createModal(AddTaskForm))
+        document.body.append(modalContainer)
+    })
+
     elem.querySelector('.actions').append(
         addTaskButton
     )

@@ -18,3 +18,8 @@ body {
   grid-template-rows: 1fr;
   height: 100vh;
 }
+
+.row{
+  display: flex;
+  gap: 16px;
+}

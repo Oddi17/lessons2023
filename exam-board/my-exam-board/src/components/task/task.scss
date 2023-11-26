@@ -6,8 +6,8 @@
   //   display: grid;
   //   grid-template-columns: 369px 129px 402px 131px 137px 140px;
   //   grid-template-rows: 1fr;
-  height: 72px;
-  width: auto;
+  // height: 72px;
+  // width: auto;
 
   color: #667085;
   font-size: 14px;
@@ -18,28 +18,46 @@
   .cell {
     padding: 16px 24px;
     display: flex;
+    height: 72px;
     align-items: center;
+    flex-shrink: 0;
     // justify-content: center;
   }
-  & .cell:first-child {
+  .name {
+    min-width: 380px;
+  }
+  .status {
+    min-width: 130px;
+  }
+  .date_start {
+    width: 130px;
+  }
+  .date_finish {
+    width: 130px;
+  }
+
+  & .cell.name {
     display: flex;
     gap: 12px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
+
+
+
   & .cell:last-child {
     display: flex;
     gap: 4px;
     padding: 16px;
   }
-  & .cell:nth-child(n + 4) {
-    align-items: center;
-  }
+  // & .cell:nth-child(n + 4) {
+  //   align-items: center;
+  // }
   & .title {
     color: #101828;
     font-weight: 500;
   }
-  & .cell .avatar img {
+  & .cell.name .avatar img {
     border-radius: 50px;
     width: 40px;
     height: 40px;
@@ -62,30 +80,35 @@
     background-repeat: no-repeat;
   }
 
+  .description {
+    width: auto;
+  }
+
   .status {
-    border-radius: 16px;
-    text-align: center;
     display: flex;
-    padding: 2px 8px;
-    justify-content: center;
+    //justify-content: center;
     align-items: center;
 
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
   }
+  .task_status{
+    display:inline-block;
+    border-radius: 16px;
+    padding: 2px 8px;
+  }
 
   .done {
     background: #ecfdf3;
     color: #027a48;
   }
-
-  .new {
-    background: #f2f4f7;
-    color: #344054;
-  }
-  .in_progress {
-    background: #f4ebff;
-    color: #6941c6;
-  }
+  // .new {
+  //   background: #f2f4f7;
+  //   color: #344054;
+  // }
+  // .in_progress {
+  //   background: #f4ebff;
+  //   color: #6941c6;
+  // }
 }
