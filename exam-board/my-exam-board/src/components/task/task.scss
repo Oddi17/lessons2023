@@ -72,7 +72,7 @@
     background: #fff;
   }
   & .cell input:checked {
-    border: 1px solid #7f56d9;
+    border: 1px solid var(--color-theme-primary);
     background: #f9f5ff;
     padding: 3px;
     background-image: url('./check.svg');

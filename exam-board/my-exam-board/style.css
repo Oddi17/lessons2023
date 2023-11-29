@@ -4,9 +4,15 @@
   box-sizing: border-box;
 }
 
+/*commit*/
+:root{
+  --color-theme-primary: #7F56D9;
+  --color-text-primary: #6941C6;
+}
+
 body {
   margin: 0;
-  background: #6941C6;  
+  background: var(--color-text-primary);  
   font-family: 'Inter', sans-serif;
   cursor: default;
 }
@@ -23,3 +29,4 @@ body {
   display: flex;
   gap: 16px;
 }
+
