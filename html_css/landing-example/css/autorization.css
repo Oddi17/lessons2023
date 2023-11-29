@@ -15,8 +15,10 @@
   background: var(--White, #fff);
 
   display: flex;
-  width: 408px;
+  width: 480px;
   padding: 24px;
+  min-height: 630px;
+
   flex-direction: column;
   align-items: center;
   gap: 32px;
@@ -26,6 +28,11 @@
   box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
     0px 20px 24px -4px rgba(16, 24, 40, 0.08);
 }
+
+.modal.closed{
+  display: none;
+}
+
 .modal_autorization img {
   display: flex;
   width: 48px;
