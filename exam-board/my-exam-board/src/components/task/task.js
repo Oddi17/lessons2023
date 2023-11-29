@@ -14,7 +14,7 @@ const removeTask = (id) => {
     }
   })
 }
-
+//commit
 const editTask = (id) => {
   Store.tasks.forEach((element, i) => {
     if (element.id === id) {

@@ -4,6 +4,7 @@ export const modalController = () => {
 
 
 }
+//commit
 
 export const createModal = (content, data, id) => {
     const elem = document.createElement('div')

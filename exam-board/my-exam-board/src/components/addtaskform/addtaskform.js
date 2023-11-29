@@ -5,7 +5,7 @@ import './addtaskform.scss'
 import AirDatepicker from 'air-datepicker'
 import 'air-datepicker/air-datepicker.css'
 
-
+//commit
 const validateForm = (dataObject, formElement) => {
     // if (dataObject.title === '') return false
     // if (dataObject.date_finish === '') return false
