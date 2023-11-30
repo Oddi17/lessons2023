@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  cursor: default;
 }
 
 body {
@@ -124,5 +125,21 @@ body {
   line-height: 20px;
   /* 142.857% */
 }
+
+.button {
+  cursor: pointer;
+}
+
+
+.header-nav .button:first-child{
+  transition: 1s linear;
+}
+
+
+.header-nav .button:first-child:hover{
+    border: solid 2px rgb(173, 173, 173);
+}
+
+/*С урока для авторизации*/
 
 
