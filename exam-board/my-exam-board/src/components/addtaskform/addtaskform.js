@@ -9,20 +9,22 @@ import 'air-datepicker/air-datepicker.css'
 const validateForm = (dataObject, formElement) => {
     // if (dataObject.title === '') return false
     // if (dataObject.date_finish === '') return false
-
     // return true
 
 
     //totdo переделать параллельно, вместо последовательной проверки
-    let isValid = true
-    if (dataObject.title === '') {isValid = false}
-    formElement.querySelector('.title').classList.toggle('error',!isValid)
+    // let isValid = true
+    let isValidTitle = true
+    let isValidDate = true
+
+    if (dataObject.title === '') {isValidTitle = false}
+    formElement.querySelector('.title').classList.toggle('error',!isValidTitle)
 
 
-    if (dataObject.date_finish === '') {isValid = false}
-    formElement.querySelector('.date-finish').classList.toggle('error',!isValid)
+    if (dataObject.date_finish === '') {isValidDate = false}
+    formElement.querySelector('.date-finish').classList.toggle('error',!isValidDate)
 
-    return isValid
+    return isValidDate && isValidTitle
 }
 
 
@@ -96,7 +98,7 @@ export const createAddTaskForm = (data) => {
     CancelButton.addEventListener('click', ()=> {
         //удалил из ДОМ дерева
         let modal_element = elem.parentElement.parentElement.parentElement
-        console.log(modal_element)
+        //console.log(modal_element)
         let parentOfmodal = modal_element.parentNode
         parentOfmodal.removeChild(modal_element)
         //

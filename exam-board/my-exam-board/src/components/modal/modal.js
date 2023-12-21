@@ -16,3 +16,9 @@ export const createModal = (content, data, id) => {
 
     return elem
 }
+
+
+///?????
+// export const CloseModal = () => {
+//     document.querySelector('.modals').remove()
+// }

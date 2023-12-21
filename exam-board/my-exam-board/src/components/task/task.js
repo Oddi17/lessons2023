@@ -53,7 +53,7 @@ export const createTask = (data) => {
   }
   elem.innerHTML = `
      <div class='cell name' data-index='${data.id}'>
-          <input type="checkbox"/>
+          <input type="checkbox" class='draggable'>
           <img src='./avatars/${data.id}.png'>
           <div class='task-text'> 
                <div class='title'>${data.title}</div>
