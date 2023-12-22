@@ -22,7 +22,6 @@ class ChristmasTree {
 
     public function __construct($symbol,$height) {
         $symbol = strval($symbol);
-        //var_dump($symbol);
         $this->_height = $height;
         $this->_symbol = $symbol;
 
@@ -33,14 +32,11 @@ class ChristmasTree {
             $tree .= str_repeat("&nbsp;",$count_space).str_repeat($symbol."&nbsp;",$i)."<br />";
         }
          
-        
         $count = 0;
         for($k = 0; $k<strlen($tree); $k++) {
             $pos = strpos($tree,$symbol,$count);
             if ($pos == $count){
-                
                 $this->_positions[] = $pos;
-                
             }
             $count++;
         };
@@ -80,13 +76,12 @@ class ChristmasTree {
             //берем массив позиций
             //рандомно можно мигаем позициями игрушек
             //$this->
+            //js для мигания
 
         };
         
     }
     public function DrawTree($draw){
-        // $t_pos = $this->_positions;
-        // $t_tree = $this->_tree; 
         if ($draw) {
             echo $this->_tree;
         }else{
