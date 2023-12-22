@@ -1,12 +1,13 @@
 <?php
 require_once "./ClassToy.php";
 
-//$switch = $_POST['garland'];
+// var_dump($_POST);
+// var_dump($_POST['login']);
+// echo $_POST['login'];
+// function Garland($switch ) {
 
-function Garland($switch ) {
 
-
-}
+// }
 
 class ChristmasTree {
     private $_symbol;
@@ -28,7 +29,6 @@ class ChristmasTree {
         $tree = "";
         for ($i=1;$i<=$height;$i++){
             $count_space = $height-$i;
-            //$tree .= str_repeat(" ",$count_space).str_repeat($symbol." ",$i)."\n";
             $tree .= str_repeat("&nbsp;",$count_space).str_repeat($symbol."&nbsp;",$i)."<br />";
         }
          
@@ -40,7 +40,6 @@ class ChristmasTree {
             }
             $count++;
         };
-        
         $this->_toysLimit = count($this->_positions);
         $this->_tree = $tree;
     }
@@ -68,8 +67,6 @@ class ChristmasTree {
             $a='0';
         };
         while($a=='1'){
-
-
             //in cycle
 
             //берем массив игрушек
@@ -83,11 +80,11 @@ class ChristmasTree {
     }
     public function DrawTree($draw){
         if ($draw) {
-            echo $this->_tree;
+            // echo $this->_tree;
+            return $this->_tree;
         }else{
         };
     }
-
     public function AddDelToy($move, Toy $toy){
         if ($move=='add' || $move=='Add') {
             if (count($this->_toysArray) > $this->_toysLimit){
@@ -110,8 +107,18 @@ class ChristmasTree {
             if (count($this->_toysArray) == 0) {
                 return;
             } else {
-                unset($this->_toysArray[array_search($this->_symbol,$this->_toysArray)]);
+                $elem = $toy->getParams();
+                //var_dump($elem['symbol']) ;
+                //var_dump($this->_toysArray);
+                //var_dump($elem['symbol']);
+                //echo (array_search($elem['symbol'],$this->_toysArray));
+                //var_dump($this->_toysArray[array_search($elem['symbol'],$this->_toysArray)]) ;
+                unset($this->_toysArray[array_search($elem['symbol'],$this->_toysArray)]);
                 $this->_toysArray = array_values($this->_toysArray);
+                //var_dump($this->_toysArray);
+                $how = strpos($this->_tree,$elem['symbol']);
+                $this->_tree[$how] = $this->_symbol;
+
             } 
         };   
     }
