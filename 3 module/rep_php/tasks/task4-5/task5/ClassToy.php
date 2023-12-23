@@ -2,7 +2,6 @@
 
 class Toy {
     private $_symbol;
-    
     public function getParams(){
         return Array(
             'symbol' => $this->_symbol,
@@ -15,13 +14,6 @@ class Toy {
         $symbol = strval($symbol);
         $this->_symbol = $symbol;
     }
-    public function DrawToys($draw){
-        if ($draw) {
-             
-        }else{
-
-        };
-    } 
 }
 
 
