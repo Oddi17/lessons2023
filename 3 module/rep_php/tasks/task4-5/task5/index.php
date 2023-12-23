@@ -7,21 +7,26 @@ if (isset($_POST['tree'])) {
     $tree_symbol = $tree['symbol'];
     $tree_height = $tree['height']; 
     $Tree = createTree($tree_symbol,$tree_height);
+    $tree_params = $Tree->getParams();
+    // var_dump($tree_params);
 
-    $draw = true;
-    $tree_draw = drawTree($draw,$Tree);
-    if (isset($_GET['params_tree'])) {
-        $get_params= $_GET['params_tree'];
-        var_dump($get_params);
-        
-        $tree_params = $Tree->getParams();
-        var_dump($tree_params);
-    }
-    // if (isset($_POST['draw'])){
-    //     $draw = $_POST['draw'];
-    //     $tree_draw = drawTree($draw,$Tree);
-    //     echo $tree_draw;
-    // };
+    $toy = $_POST['toy'];
+    $toySymbol = $toy['symbol'];
+    
+    $objToy = new Toy();
+    $objToy->setSymbol($toySymbol);
+    $quantityToys = $toy['quantity'];
+    
+    // $Tree->AddDelToy('add',$objToy);
+    $Tree->AddMoreToys('add',$objToy,$quantityToys);
+    // var_dump($Tree);
+    $tree_draw = drawTree($draw=true,$Tree);
+
+    // if (isset($_POST['params_tree'])) {
+    //     $tree_params = $Tree->getParams();
+    //     var_dump($tree_params);
+    // }
+    
 } 
 
 @include 'Tree.tpl';
@@ -38,6 +43,11 @@ function drawTree($draw,$tree){
     if ($draw) {
         return $tree->DrawTree($draw);
     }
+}
+
+function makeToy($symbol,$tree){
+
+
 }
 
 

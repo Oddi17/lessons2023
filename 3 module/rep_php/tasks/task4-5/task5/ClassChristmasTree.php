@@ -1,13 +1,6 @@
 <?php
 require_once "./ClassToy.php";
 
-// var_dump($_POST);
-// var_dump($_POST['login']);
-// echo $_POST['login'];
-// function Garland($switch ) {
-
-
-// }
 
 class ChristmasTree {
     private $_symbol;
@@ -66,18 +59,9 @@ class ChristmasTree {
         }else{
             $a='0';
         };
-        while($a=='1'){
-            //in cycle
-
-            //берем массив игрушек
-            //берем массив позиций
-            //рандомно можно мигаем позициями игрушек
-            //$this->
-            //js для мигания
-
-        };
-        
     }
+        
+    
     public function DrawTree($draw){
         if ($draw) {
             // echo $this->_tree;
@@ -85,6 +69,29 @@ class ChristmasTree {
         }else{
         };
     }
+    public function AddMoreToys ($move,Toy $toy,$quantity) {
+        if ($move=='add' || $move=='Add') {
+            if (count($this->_toysArray) > $this->_toysLimit){
+                echo 'Лимит игрушек превышен!';
+                return;
+            } else {
+                for ($j=0;$j<$quantity;$j++) {
+                    $elem = $toy->getParams();
+                    array_push($this->_toysArray,$elem['symbol']);
+                    $posit = rand($this->_positions[0],end($this->_positions));
+                
+                    if (in_array($posit,$this->_positions) && $this->_tree[$posit] == $this->_symbol) {
+                        $this->_tree[$posit] = $elem['symbol']; 
+                        //TODO: также можно сделать добавление в массив игрушек и потом отдельно их отрисовывать с елочкой
+                    } else {
+                        $how = strpos($this->_tree,$this->_symbol,$posit);
+                        $this->_tree[$how] = $elem['symbol']; 
+                }
+            }
+                }
+    }
+}
+
     public function AddDelToy($move, Toy $toy){
         if ($move=='add' || $move=='Add') {
             if (count($this->_toysArray) > $this->_toysLimit){
@@ -97,10 +104,14 @@ class ChristmasTree {
                 
                 if (in_array($posit,$this->_positions) && $this->_tree[$posit] == $this->_symbol) {
                     $this->_tree[$posit] = $elem['symbol']; 
+                    // echo $elem['symbol'];
                     //TODO: также можно сделать добавление в массив игрушек и потом отдельно их отрисовывать с елочкой
                 } else {
                     $how = strpos($this->_tree,$this->_symbol,$posit);
+                    
                     $this->_tree[$how] = $elem['symbol']; 
+                    // echo $this->_tree;
+                    // var_dump( $this->_toysArray);
                 }
             }
         }elseif ($move=='del' || $move=='Del'){
@@ -108,17 +119,10 @@ class ChristmasTree {
                 return;
             } else {
                 $elem = $toy->getParams();
-                //var_dump($elem['symbol']) ;
-                //var_dump($this->_toysArray);
-                //var_dump($elem['symbol']);
-                //echo (array_search($elem['symbol'],$this->_toysArray));
-                //var_dump($this->_toysArray[array_search($elem['symbol'],$this->_toysArray)]) ;
                 unset($this->_toysArray[array_search($elem['symbol'],$this->_toysArray)]);
                 $this->_toysArray = array_values($this->_toysArray);
-                //var_dump($this->_toysArray);
                 $how = strpos($this->_tree,$elem['symbol']);
                 $this->_tree[$how] = $this->_symbol;
-
             } 
         };   
     }

@@ -13,17 +13,20 @@
         <div class="create_forms"> 
             <form action="" method="post">
                 <div class="create">
-                    Символ елки:<input type="text" name="tree[symbol]" /> <br />
-                    Высота елки: <input type="text" name="tree[height]" /> <br />
-                    Символ игрушки:<input type="text" name="toy[symbol]" /> <br />
+                    Символ елки:<input type="text" id = "tree" name="tree[symbol]" /> <br />
+                    Высота елки: <input type="text" id="height" name="tree[height]" /> <br />
+                    Символ игрушки:<input type="text" id="toy" name="toy[symbol]" /> <br />
+                    Количество игрушек:<input type="text" id="quantity" name="toy[quantity]" /> <br />
                     <input type="submit" value="Создать">
+
+
                     
                     
                 </div>
             </form>
         </div>
         <div class="pic_tree">
-                <p>
+                <p id="pic">
                 <?php 
                 if ($tree['symbol']==null || $tree['height']==null){
                     
@@ -44,8 +47,10 @@
            
     </div>
 
-<script src="js_file.js"></script>    
-<script> let js_object = <?php echo json_encode("Rondo")?>; </script>   
+<script src="js_file.js"></script>
+<script> let current_treeSymbol = "<?php echo $tree_symbol; ?>";
+let current_toySymbol = "<?php echo $toySymbol; ?>";
+ </script>   
 </div>    
 </body>
 </html>

@@ -21,8 +21,6 @@ for($k = 0; $k<strlen($tree); $k++) {
     $count++;
 };
 
-//var_dump($positions);
-
 for ($j=0;$j<$treeToys;$j++) {
     $posit = rand($positions[0],end($positions));
     if (in_array($posit,$positions) && $tree[$posit] == $signTree) {

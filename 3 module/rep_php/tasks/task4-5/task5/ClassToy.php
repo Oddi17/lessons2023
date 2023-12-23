@@ -2,10 +2,6 @@
 
 class Toy {
     private $_symbol;
-
-    // public function __construct($symbol){
-    //     $this->_symbol = $symbol;
-    // }
     
     public function getParams(){
         return Array(
@@ -29,28 +25,5 @@ class Toy {
 }
 
 
-
-
-
-// $Ball = new Toy();
-
-// //var_dump($Ball);
-
-// $Ball->ShowParams();
-// $Ball->setSymbol('*');
-// $Ball->ShowParams();
-
-// $elem = $Ball->getParams();
-// print_r($elem);
-
-// echo "Elem:".$elem['symbol'];
-
-
-
-//var_dump($Ball->getParams());
-
-//$some_of_ball = $Ball->getParams();
-
-//var_dump($some_of_ball);
 
 
