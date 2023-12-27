@@ -6,8 +6,8 @@ class MyPDO extends PDO
     const PARAM_host = 'localhost';
     const PARAM_port = '5432';
     const PARAM_db_name = 'postgres';
-    const PARAM_user = 'root';
-    const PARAM_db_pass = '';
+    const PARAM_user = 'postgres';
+    const PARAM_db_pass = '123';
 
     public function __construct($options = null)
     {
@@ -33,14 +33,32 @@ class MyPDO extends PDO
 
 }
 
+// // $dbconn = pg_connect("postgres");
+// var_dump($dbconn);
+
+// $db = new MyPDO();
+// $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
+// $ret = $db->query("SELECT 1 as id union SELECT 2 as id");
+
+// while ($o = $ret->fetch()) {
+//     echo $o->nom . PHP_EOL;
+// }
+
+
+
 $db = new MyPDO();
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-$ret = $db->query("SELECT 1 as id union SELECT 2 as id");
+$t1 = isset($_GET["t1"])?$_GET["t1"]:1; // need to be securised for injonction
+$t2 = isset($_GET["t2"])?$_GET["t2"]:2; // need to be securised for injonction
+$t3 = isset($_GET["t3"])?$_GET["t3"]:3; // need to be securised for injonction
 
-while ($o = $ret->fetch()) {
-    echo $o->nom . PHP_EOL;
+$ret = $db->query("SELECT * FROM table_test WHERE t1=? AND t2=? AND t3=?",$t1,$t2,$t3);
+//$ret = $db->insecureQuery("SELECT * FROM table_test WHERE t1=".$db->quote($t1));
+
+while ($o = $ret->fetch())
+{
+    echo $o->nom.PHP_EOL;
 }
-
-
 
