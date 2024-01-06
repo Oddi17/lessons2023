@@ -28,6 +28,7 @@ window.Store = {
 
 window.Store.tasks = loadDataLS()
 //commit
+//VITE
 const createApp = (container) => {
     const Panel = document.createElement('div')
     Panel.className = 'side'
