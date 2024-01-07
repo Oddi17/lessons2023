@@ -1,8 +1,36 @@
 import arrow_next from '/arrow_next.svg'
 import arrow_prev from '/arrow_prev.svg'
+import {useState} from 'react'
 
-export default function CalendarMy() {
+export default function CalendarMy(props) {
+  const [upperMonthName,setUpperMonthName] = useState(props.name)
+
+  
+  let curDate = props.date 
+  // console.log(typeof(props.month))
+  console.log("TEk date:",curDate)
+
+  
+  function upperDate(date) {
+    let curNameMounth = curDate.toLocaleString('ru', {       
+      month: 'long'       
+      })
+    const upperMonthName = curNameMounth.charAt(0).toUpperCase() + curNameMounth.slice(1)
+    return upperMonthName 
+  }
+
+  // let curDate = new Date()
+  // const curNameMounth = curDate.toLocaleString('ru', {       
+  //   month: 'long'       
+  // })
+  // const upperMonthName = curNameMounth.charAt(0).toUpperCase() + curNameMounth.slice(1);
+  
+
+  
+
   let choosedElem 
+
+
   function handleClick(e) {
     let classOnElement = e.target.classList
     if (classOnElement.contains("choose") === true) {
@@ -17,16 +45,34 @@ export default function CalendarMy() {
     console.log(classOnElement)
   }
 
+  function switchMonth(e) {
+    let direction = e.target.id
+    console.log(direction)
+    if (direction=="next"){
+      curDate.setMonth(curDate.getMonth() + 1);
+      // console.log(curDate.toLocaleString('ru', {       
+      //   month: 'long'       
+      // }))
+      setUpperMonthName(upperDate(curDate))
+    }else if (direction=="prev"){
+      curDate.setMonth(curDate.getMonth() - 1)
+      setUpperMonthName(upperDate(curDate))
+      if (new Date().getMonth() === curDate.getMonth()) return
+    }
+  }
+
   let dayInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   //надо будет сделать переключение месяцев +1 -1
   // let curNumMounth = new Date().getMonth()
 
-  const curNameMounth = new Date().toLocaleString('ru', {       
-    month: 'long'       
-  })
-  const upperMonthName = curNameMounth.charAt(0).toUpperCase() + curNameMounth.slice(1);
+  // const curNameMounth = new Date().toLocaleString('ru', {       
+  //   month: 'long'       
+  // })
+  // const upperMonthName = curNameMounth.charAt(0).toUpperCase() + curNameMounth.slice(1);
+
 
   function generateCalendar(date) {
+
     let curDay = date.getDate()
     date.setDate(1)
     let startDay = date.getDay()
@@ -53,10 +99,10 @@ export default function CalendarMy() {
   return (
     <div className="calendar">
       <div className="calendar-head">
-        <img src={arrow_prev}></img>
+        <img src={arrow_prev} id='prev' onClick={switchMonth}></img>
         {/* <div>{arrow}</div> */}
         <h3>{upperMonthName}</h3>
-        <img src={arrow_next}></img>
+        <img src={arrow_next} id='next' onClick={switchMonth}></img>
       </div>
       <div className="calendar-days">
         <div>Пн</div>
@@ -67,7 +113,7 @@ export default function CalendarMy() {
         <div>Сб</div>
         <div>Вс</div>
       </div>
-      <div className="calendar-body">{generateCalendar(new Date())}</div>
+      <div className="calendar-body">{generateCalendar(curDate)}</div>
     </div>
   )
 }
