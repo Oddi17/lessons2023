@@ -11,12 +11,11 @@ import '../src/calendar/CalendarMy.scss'
 
 export default function App() {
   const dateNow = new Date()
-  console.log("FIrst:",dateNow)
   const nameMonthNow = dateNow.toLocaleString('ru', {
     month: 'long',
   })
   const upperNameMonthNow = nameMonthNow.charAt(0).toUpperCase() + nameMonthNow.slice(1)
-
+ 
   return (
     <div className="container">
       <header>
@@ -36,7 +35,7 @@ export default function App() {
               onChange = {onChangeCalendar}
               value = {calendarValue}
                /> */}
-              <CalendarMy date={dateNow} name={upperNameMonthNow}/>
+              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
           </div>
           <div id="collapse_2">Меню</div>
           <div id="collapse_3">Фото</div>
