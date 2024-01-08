@@ -60,8 +60,9 @@ export default function CalendarMy({dateNow,name}) {
         date = new Date()
         let curDay = date.getDate()
         let startDay = date.getDay()
+        console.log(startDay)
         let daysTotal = !(date.getFullYear() % 4) && date.getMonth() === 1 ? 29 : dayInMonth[date.getMonth()]
-        for (let i = 0; i < startDay; i++) {
+        for (let i = 1; i < startDay; i++) {
           calendarContent.push(<div key={`no-day-${i}`} className="no-day"></div>)
         }
         for (let i = 1; i <= daysTotal; i++) {
