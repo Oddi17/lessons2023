@@ -10,8 +10,6 @@ require_once (ROOT . '/components/Router.php');
 
 $router = new Router();
 $router->run();
-
-
 exit;
 
 
