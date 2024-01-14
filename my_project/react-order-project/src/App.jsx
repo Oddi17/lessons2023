@@ -1,10 +1,11 @@
 import './App.css'
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
 import { useState } from 'react'
-import './Calendar_another.css'
-import CalendarMy from './calendar/Calendar_my'
-import '../src/calendar/CalendarMy.scss'
+import CalendarMy from './components/calendar/Calendar_my'
+import './components/calendar/CalendarMy.scss'
+import Collapsible from './components/collapse/Collapse'
+import './components/collapse/Collapse.scss'
+import telegram from '/telegram.svg'
+import instagram from '/instagram.svg'
 
 export default function App() {
   const dateNow = new Date()
@@ -16,33 +17,45 @@ export default function App() {
 
   return (
     <div className="container">
-      <header>
-        <div>
-          <div>Тут лого или просто название</div>
-          <h2>Бронирование</h2>
-        </div>
-        <div>тут кнопки меню</div>
-      </header>
-      <div className="main_container">
-        <h1>Добро пожаловать!</h1>
-        <section id="1">
-          <div id="collapse_1">
-            <h2>
-              <button aria-expanded="false">Забронировать столик</button>
-            </h2>
-            <div class="collapse_elem">
-              Some TEXT!
-              <svg viewBox="" aria-hidden="true" focusable="false">
-                <rect class="vert" height="8" width="2" y="1" x="4" />
-                <rect height="2" width="8" y="4" x="1" />
-              </svg>
+        <header>
+            <h2>ST.Restaurant</h2>
+            <div className="nav">
+              <div>Мероприятия</div>
+              <div>О нас</div>
+              <div>Отзывы</div>
             </div>
-
-            <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
-          </div>
-          <div id="collapse_2">Меню</div>
-          <div id="collapse_3">Фото</div>
-        </section>
+            <div className="icons">
+              <span class="material-symbols-outlined">mail</span>
+              <span class="material-symbols-outlined">call</span>
+              <img src={telegram}></img>
+              <img src={instagram}></img>
+              <i class="bi bi-instagram"></i>
+            </div>
+        </header>
+      <div className="main_container">
+        <div className='back'>
+          <section id="1">
+            {/* <Collapsible label="Introduction">
+              <h1>introduction</h1>
+              <p>
+                The collapsible component puts long sections of the information under a
+                block enabling users to expand or collapse to access its details.
+              </p>
+            </Collapsible> */}
+            <Collapsible label="Забронировать" classIn="collapse 1">
+              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
+            </Collapsible>
+            {/* <div>
+              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
+            </div> */}
+            <Collapsible label="Меню" classIn="collapse 2">
+              <div>КАКОЙ-ТО ТЕКСТ</div>
+            </Collapsible>
+            <Collapsible label="Фото" classIn="collapse 3">
+              <div>РАЗНЫЕ ФОТКИ</div>
+            </Collapsible>
+          </section>
+        </div>
       </div>
     </div>
   )

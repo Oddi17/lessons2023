@@ -1,4 +1,5 @@
 <?php
+//todo: Забрать настройки из конфига
 define('DB_PERSISTENCY', 'true');
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'postgres');
@@ -9,9 +10,8 @@ define('PDO_DSN', 'pgsql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE);
 
 class DataBase
 {
-    
+    const SQL_SELECT_ALL_ACCOUNT =  'select * from account';
     private static $db;
-    const SQL_SELECT_ALL_ACCOUNT = 'select * from account';
 
     // Clear the PDO class instance
     public static function Close()
@@ -24,13 +24,8 @@ class DataBase
         if (!isset(self::$db)) {
             // Execute code catching potential exceptions
             try {
-                //$options = array(PDO::ATTR_PERSISTENT => DB_PERSISTENCY, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
-                //self::$db = new PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD, $options);
                 self::$db = new PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD);
-
                 self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //$this->createTable(self::$db);
-
             } catch (PDOException $e) {
                 // Close the database handler and trigger an error
                 self::Close();
@@ -88,7 +83,8 @@ class DataBase
 
 }
 
+//define('SQL_SELECT_ALL_ACCOUNT', 'select * from account');
+//$db = new DataBase();
+//$result = $db->getDataBase(SQL_SELECT_ALL_ACCOUNT);
+// var_dump($result);
 
-
-// $db = new DataBase();
-// $db->openDataBase();
