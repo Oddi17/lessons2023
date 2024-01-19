@@ -11,9 +11,19 @@ require_once "__DIR__/../model/ModelPage.php";
 require_once "__DIR__/../view/View.php";
 class PageController {
     public function actionIndex() {
-        $res = modelPage();
+        //$res = Array('result' => $res);
+        //echo render($res, 'question.tpl');
+        $mdl= new ModelPage();
+        $res = $mdl->getListQuestion();
         $res = Array('result' => $res);
         echo render($res, 'question.tpl');
+
+    }
+    public function actionCounter() {
+        $mdl = new ModelPage();
+        $res = $mdl -> getCounter();
+        echo json_encode($res);
+        //echo json_encode(Array('cnt'=>10));
     }
 
 }

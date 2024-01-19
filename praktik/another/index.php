@@ -17,7 +17,6 @@ $router->run();
 
 
 
-
 exit;
 
 
@@ -35,7 +34,7 @@ require_once "./controllers/PageController.php";
 echo "Stage1";
 
 try {
-   $action =  isset($_GET['action'])? $_GET['action']  : 'controllerPage';
+   $action =  isset($_GET['action'])? $_GET['action']  : 'PageController';
    $action();
 } catch (Exception $e) {
     echo "Не задан ";  // уровень отладки кода

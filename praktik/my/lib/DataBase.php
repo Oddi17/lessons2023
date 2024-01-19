@@ -9,9 +9,8 @@ define('PDO_DSN', 'pgsql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE);
 
 class DataBase
 {
-    
-    private static $db;
     const SQL_SELECT_ALL_ACCOUNT = 'select * from account';
+    private static $db;
 
     // Clear the PDO class instance
     public static function Close()

@@ -1,7 +1,8 @@
-<form action="../auth.php" method="POST">
-    <label for="name">Ваше имя: <?php echo $name?> </label>
-    <input name="login" id="name" type="text">
-    <label for="age">Ваш возраст:</label>
-    <input name="passwd" id="age" type="number">
-    <button type="submit">Submit</button>
+<form method="POST" action="../auth.php">
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Войти">
 </form>

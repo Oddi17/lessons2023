@@ -33,7 +33,6 @@ export default function App() {
             </div>
         </header>
       <div className="main_container">
-        <div className='back'>
           <section id="1">
             {/* <Collapsible label="Introduction">
               <h1>introduction</h1>
@@ -55,7 +54,6 @@ export default function App() {
               <div>РАЗНЫЕ ФОТКИ</div>
             </Collapsible>
           </section>
-        </div>
       </div>
     </div>
   )

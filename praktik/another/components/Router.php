@@ -4,9 +4,9 @@ spl_autoload_register('catch_class');
 //$arr_include = ["ROOT . '/controllers/'"]
 
 function catch_class($name_class) {
-    echo $name_class;
+    //echo $name_class;
     $controllerFile = ROOT . '/controllers/' . $name_class . '.php';
-    echo $controllerFile;
+    //echo $controllerFile;
     if(file_exists($controllerFile))
     {
         include_once ($controllerFile);
