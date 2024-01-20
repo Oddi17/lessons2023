@@ -7,6 +7,8 @@ return array
     'products' => 'product/list', // actionList в ProductController
     'page' => 'page/index',
     'counter' => 'page/counter',
-    'login' => 'login/form'
+    'login' => 'login/form',//'auth' => 'auth/checkUser',
+    'question' => 'addQuestion/index',
+    'add' => 'addQuestion/add'
 
 );

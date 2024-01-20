@@ -23,4 +23,19 @@ public function getCounter() {
     $data = $db->getDataBase(ModelPage:: SQL_COUNT_QUESTIONS);
     return $data;
 }
+const INSERT_QUESTION = 'insert into question(id_user,name,dt_create) values (:id_user,:name,now())';
+
+public function addQuestion($question){
+    try {
+        $db = new DataBase();
+        $data = Array('id_user'=>4,'name'=>$question);
+        $db->setBasePrepare(self::INSERT_QUESTION, $data);
+        return json_encode(['code'=>200]);
+    } catch (Exception $e){
+        return json_encode(['code'=>500,'message'=>$e->getMessage()]);
+    }
+    
+
+}
+
 }

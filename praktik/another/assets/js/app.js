@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //console.log("Hello World!");
     let elm = document.getElementById("counter");
     
-  console.log(elm);
-  elm.textContent = 25;
+    console.log(elm);
+  //elm.textContent = 25;
 
 
   axios({

@@ -11,6 +11,15 @@ echo $content;
 checkUser($login, $passwd);
 //checkPass($login, $passwd);
 
+// class AuthController {
+//     public function actioncheckUser($login,$passwd) {
+            //$_SESSION['is_auth']
+        //pagecontroller там проверяет сессию и снова если что кидает на логин
+//     }
+// }
+
+
+
 function checkUser($login,$passwd){
     $mdl = new ModelLogin();
     $result = $mdl->auth($login, $passwd);
