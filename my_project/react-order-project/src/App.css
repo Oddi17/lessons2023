@@ -44,6 +44,7 @@
   --color-white: #fff;
   --color-light: rgba(132, 139, 200, 0.18);
   --color-light-white: #ffffff54;
+  --color-background-dark: #2F1893;
 
 
   /* --box-shadow: 0 2rem 3rem var(--color-light); */
@@ -69,6 +70,7 @@ body {
 .container {
   /* margin: 0 auto; */
   /* padding: 20px 40px; */
+  
   user-select: none;
   font-family: Roboto;
   font-size: var(--f-size-standart);
@@ -78,9 +80,12 @@ body {
 
 header {
   position: fixed; /* Фиксированное позиционирование */
-  width:100%;
+  /* width:100%; */
+  width: 100vw;
   /* left: 0; right: 0; */
-  top: 0; /* Положение сверху */
+  top: 0; /*Положение сверху */
+  /* background: LAVENDER; */
+  background: aliceblue;
   padding: 20px 40px;
   /* padding: 10px; */
   display: flex;
@@ -89,12 +94,13 @@ header {
   color: var(--color-text-head);
   font-weight: 600;
   line-height: 20px;
-  background-color: var(--color-light-white);
+  /* background-color: var(--color-light-white); */
   box-shadow: var(--box-shadow);
   /* border-radius: 10px; */
   transition: all 0.3s ease;
   /* text-transform: uppercase; */
 }
+
 
 header:hover {
   box-shadow: none;
@@ -104,6 +110,7 @@ header .nav {
   display: flex;
   gap: 15px;
   cursor: pointer;
+  
 }
 
 header .icons {
@@ -149,18 +156,42 @@ header .icons {
 } */
 
 .main_container section {
-  margin-top: 100px;
+  /* margin:50px; */
+  /* padding: 30px; */
   text-align: center;
   display: flex;
   flex-direction: column;
   gap:10px;
+}
+/* section#first{
+  margin-top: 65px;
+} */
+section#first .collapse.first{
+  margin-top: 150px;
+}
+/* section#first .collapse:hover{
+  background: rgba(255, 255, 255, 0.5);
+} */
+
+section#second,section#third{
+  height: 200px;
+}
+.wallpaper{
+  background-image: url('../public/see_2.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: 100% 75%;
+
 }
 /* .main_container .collapse{
   border-radius: 10px;
 } */
 .main_container .collapse .mybutton {
   padding: 10px;
-  color: var(--color-text-head);
+  /* color: var(--color-text-head); */
+  color: rgba(255, 255, 255, 0.8);
   /* background-color: var(--color-light-white); */
   font-size: 40px;
   font-weight: 600;
@@ -168,12 +199,16 @@ header .icons {
   letter-spacing: 1.5px;
   display: inline-block;
   cursor: pointer;
+  transition: all ease .1s;
   /* transition: border 0.1s; */
 }
 
 .main_container .collapse .mybutton:hover{
   /* background-color: #f1f1f1; */
-  border-radius: 20px;
-  border: 2px solid var(--color-text-no);
+  /* border-radius: 20px;
+  border: 2px solid var(--color-text-no); */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
   transform: scale(1.1, 1.1); 
+  color: var(--color-text-head);
 }
