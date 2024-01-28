@@ -50,13 +50,13 @@ export default function App() {
             {/* <div>
               <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
             </div> */}
-            <Collapsible label="Меню" classIn="collapse second">
+            {/* <Collapsible label="Меню" classIn="collapse second">
               <div>КАКОЙ-ТО ТЕКСТ</div>
               <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
             </Collapsible>
             <Collapsible label="Фото" classIn="collapse third">
               <div>РАЗНЫЕ ФОТКИ</div>
-            </Collapsible>
+            </Collapsible> */}
           </section>
           </div>
           <section id="second">

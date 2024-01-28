@@ -161,13 +161,18 @@ header .icons {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap:5px;
+  
 }
 /* section#first{
   margin-top: 65px;
 } */
-section#first .collapse.first{
-  margin-top: 150px;
+
+section#first{
+  padding: 70px;
+  /* margin-top: 150px; */
+  
+  
 }
 /* section#first .collapse:hover{
   background: rgba(255, 255, 255, 0.5);
@@ -178,29 +183,50 @@ section#second,section#third{
 }
 .wallpaper{
   background-image: url('../public/see_2.jpg');
-  width: 100vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  /* background-position: center; */
-  background-size: 100% 75%;
+  /* height: 50vh;  */
+  /* width: 100vw;
+  height: 100vh; */
+  /* background-repeat: no-repeat;
+  background-size: 100% 75%; */
 
+  /* background-position: center; */
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
 }
 /* .main_container .collapse{
   border-radius: 10px;
 } */
 .main_container .collapse .mybutton {
-  padding: 10px;
-  /* color: var(--color-text-head); */
+  /* padding: 10px;
+  
   color: rgba(255, 255, 255, 0.8);
-  /* background-color: var(--color-light-white); */
+  
   font-size: 40px;
   font-weight: 600;
   line-height: 52px;
   letter-spacing: 1.5px;
   display: inline-block;
   cursor: pointer;
-  transition: all ease .1s;
+  transition: all ease .1s; */
+  /* color: var(--color-text-head); */
+  /* background-color: var(--color-light-white); */
   /* transition: border 0.1s; */
+
+
+  padding: 4px;
+    /* color: var(--color-text-head); */
+    color: rgba(255, 255, 255, 0.8);
+    /* background-color: var(--color-light-white); */
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all ease .1s;
+    /* transition: border 0.1s;*/
 }
 
 .main_container .collapse .mybutton:hover{
@@ -208,7 +234,7 @@ section#second,section#third{
   /* border-radius: 20px;
   border: 2px solid var(--color-text-no); */
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 50px;
-  transform: scale(1.1, 1.1); 
+  border-radius: 10px;
+  /* transform: scale(1.1, 1.1);  */
   color: var(--color-text-head);
 }
