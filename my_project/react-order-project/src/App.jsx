@@ -8,6 +8,8 @@ import './components/collapse/Collapse.scss'
 import telegram from '/telegram.svg'
 import instagram from '/instagram.svg'
 
+
+
 export default function App() {
   const dateNow = new Date()
   const nameMonthNow = dateNow.toLocaleString('ru', {
@@ -20,23 +22,24 @@ export default function App() {
     <div className="container">
       <header>
         <h2>ST.Restaurant</h2>
-        <div className="nav">
-          <div>Мероприятия</div>
-          <div>О нас</div>
-          <div>Отзывы</div>
-          <div>Войти</div>
-        </div>
+        
         <div className="icons">
-          <span class="material-symbols-outlined">mail</span>
-          <span class="material-symbols-outlined">call</span>
+          <div className="nav">
+            <div>Мероприятия</div>
+            <div>О нас</div>
+            <div>Отзывы</div>
+            <div>Войти</div>
+          </div>
+          <span className="material-symbols-outlined">mail</span>
+          <span className="material-symbols-outlined">call</span>
           <img src={telegram}></img>
           <img src={instagram}></img>
-          <i class="bi bi-instagram"></i>
+          <i className="bi bi-instagram"></i>
         </div>
       </header>
       <div className="main_container">
         <div className="wallpaper">
-          <section id="first">
+          <section id="reserv">
             {/* <Collapsible label="Introduction">
               <h1>introduction</h1>
               <p>
@@ -59,9 +62,17 @@ export default function App() {
             </Collapsible> */}
           </section>
           </div>
-          <section id="second">
+          <section id="about">
             <div>ЧТО-ТО! под номером 2</div>
           </section>
+          <div className="wallpaper">
+          <section id="menu">
+            
+            <Collapsible label="Меню" classIn="collapse second">
+              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
+            </Collapsible>
+          </section>
+          </div>
           <section id="third">
             <div>ЧТО-ТО! под номером 3</div>
           </section>
