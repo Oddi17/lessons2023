@@ -5,10 +5,13 @@ import CalendarMy from './components/calendar/Calendar_my'
 import './components/calendar/CalendarMy.scss'
 import Collapsible from './components/collapse/Collapse'
 import './components/collapse/Collapse.scss'
-import telegram from '/telegram.svg'
-import instagram from '/instagram.svg'
 
-
+import Header from './Header'
+import {Form} from './components/form/form'
+import Login from './Login'
+// import {BrowserRouter , Router, Routes,Route, Link} from  "react-router-dom"
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function App() {
   const dateNow = new Date()
@@ -20,46 +23,18 @@ export default function App() {
 
   return (
     <div className="container">
-      <header>
-        <h2>ST.Restaurant</h2>
-        
-        <div className="icons">
-          <div className="nav">
-            <div>Мероприятия</div>
-            <div>О нас</div>
-            <div>Отзывы</div>
-            <div>Войти</div>
-          </div>
-          <span className="material-symbols-outlined">mail</span>
-          <span className="material-symbols-outlined">call</span>
-          <img src={telegram}></img>
-          <img src={instagram}></img>
-          <i className="bi bi-instagram"></i>
-        </div>
-      </header>
+      <Header/>
+      
+      
+      {/* <Router>
+        Swi
+      </Router> */}
       <div className="main_container">
         <div className="wallpaper">
           <section id="reserv">
-            {/* <Collapsible label="Introduction">
-              <h1>introduction</h1>
-              <p>
-                The collapsible component puts long sections of the information under a
-                block enabling users to expand or collapse to access its details.
-              </p>
-            </Collapsible> */}
             <Collapsible label="Забронировать" classIn="collapse first">
               <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
             </Collapsible>
-            {/* <div>
-              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
-            </div> */}
-            {/* <Collapsible label="Меню" classIn="collapse second">
-              <div>КАКОЙ-ТО ТЕКСТ</div>
-              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
-            </Collapsible>
-            <Collapsible label="Фото" classIn="collapse third">
-              <div>РАЗНЫЕ ФОТКИ</div>
-            </Collapsible> */}
           </section>
           </div>
           <section id="about">
@@ -69,7 +44,7 @@ export default function App() {
           <section id="menu">
             
             <Collapsible label="Меню" classIn="collapse second">
-              <CalendarMy dateNow={dateNow} name={upperNameMonthNow} />
+              {/* <CalendarMy dateNow={dateNow} name={upperNameMonthNow} /> */}
             </Collapsible>
           </section>
           </div>
@@ -83,6 +58,12 @@ export default function App() {
             </div>
           </div>
         </div>
+        
+        <Router>
+          <Routes>
+              <Route path="/login" element={<Login/>}/>
+          </Routes>
+        </Router>
     </div>
   )
 }

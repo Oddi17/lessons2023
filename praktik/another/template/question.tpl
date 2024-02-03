@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="../assets/js/axios.min.js"></script>
+    <script src="../assets/js/question.js"></script>
     
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -18,7 +19,7 @@
     <input type="submit" value="Добавить">
 </form>
 <span id="q" style="display: none;">Вопрос добавлен</span>
-<script src="../assets/js/question.js"></script>
+
 <!-- <script>function helloWorld(){console.log('hell!')}</script> -->
 </body>
 </html>

@@ -13,22 +13,22 @@ import { useGSAP } from "@gsap/react";
 
 let Collapsible = (props) => {
 
-  gsap.registerPlugin(ScrollTrigger)
+  // gsap.registerPlugin(ScrollTrigger)
 
-  const container = useRef();
+  // const container = useRef();
 
-  const { contextSafe } = useGSAP({scope: container});
+  // const { contextSafe } = useGSAP({scope: container});
 
 
 
-  useGSAP(() => {
-    gsap.to(".collapse", {
-      x:"1000",
-      duration: 2,
-      scrollTrigger: ".collapse"
-    })
+  // useGSAP(() => {
+  //   gsap.to(".collapse", {
+  //     x:"1000",
+  //     duration: 2,
+  //     scrollTrigger: ".collapse"
+  //   })
 
-  }, { scope: container }) 
+  // }, { scope: container }) 
 
 
   
@@ -45,7 +45,8 @@ let Collapsible = (props) => {
 
   return (
     
-      <div ref={container} className={props.classIn}>
+      // <div ref={container} className={props.classIn}>
+      <div className={props.classIn}>
         <div  className="collapse">
           {/* <button onClick={toggle}></button> */}
           <Button handleClick={toggle}>{props.label}</Button>

@@ -3,6 +3,8 @@ import arrow_prev from '/arrow_prev.svg'
 import { useState } from 'react'
 
 export default function CalendarMy({dateNow,name}) {
+
+
   let choosedElem 
   let dayInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   const [upperMonthName,setUpperMonthName] = useState(name)

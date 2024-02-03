@@ -6,7 +6,7 @@ class LoginController {
     //$res = model();
     //echo render($res, 'form_login.tpl');
 
-    public function actionForm(){
-        echo render(array(),'form_login.tpl');
+    public function actionIndex(){
+        echo render(array(),'login.tpl');
     }
 }
