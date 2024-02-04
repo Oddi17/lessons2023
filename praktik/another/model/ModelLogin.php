@@ -6,6 +6,7 @@ class ModelLogin {
     public function auth($log,$pas){
         $db = new DataBase();
         $data = $db->getDataBase(ModelLogin::SQL_SELECT_ALL_ACCOUNT);
+        var_dump($data);
         foreach($data as $account){
             if ($account["login"] == $log){
                 if (password_verify($pas,$account["password"])){
