@@ -1,22 +1,23 @@
 <?php
 
-namespace orderporject\components;
-
-// use orderporject\controllers;
+namespace orderproject\components;
 
 
-spl_autoload_register('catch_class');
-//$arr_include = ["ROOT . '/controllers/'"]
 
-function catch_class($name_class) {
-    $controllerFile = ROOT . '/controllers/' . $name_class . '.php';
-    if(file_exists($controllerFile))
-    {
-        include_once ($controllerFile);
-    }
-}
+// spl_autoload_register('catch_class');
+// //$arr_include = ["ROOT . '/controllers/'"]
+// function catch_class($name_class) {
+    
+//     $controllerFile = ROOT . '/controllers/' . $name_class . '.php';
+//     if(file_exists($controllerFile))
+//     {
+//         include_once ($controllerFile);
+//     }
+// }
 // use orderporject\routes
-$routesPath = ROOT . '/routes.php';
+
+// $routesPath = ROOT . '/routes.php';
+
 
 
 //echo $routesPath;
@@ -25,10 +26,11 @@ class Router
 // массив маршрутов
     private $routes;
 
-    public function __construct()
+    public function __construct($routes_arr)
     {
         global $routesPath;
-        $this->routes = include($routesPath);
+        // $this->routes = include($routesPath);
+        $this->routes = $routes_arr;
         //var_dump($this->routes);
     }
 
@@ -41,13 +43,16 @@ class Router
         {
             if(preg_match("~$uriPattern~", $uri))
             {
+                // echo 'step1';
                 $segments = explode('/', $path);
                 $controllerName = ucfirst(array_shift($segments) . 'Controller');
                 $actionName = 'action' . ucfirst(array_shift($segments));
                 //$controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
                 // затем проверяем: если такой файл существует, то подключаем его
-
-                $controllerObject = new $controllerName;
+                
+                $controllerClass = "\\orderproject\\controllers\\{$controllerName}";
+                $controllerObject = new $controllerClass;
+                // $controllerObject = new $controllerName;
                 $result = $controllerObject -> $actionName();
 //                if(file_exists($controllerFile))
 //                {

@@ -50,7 +50,7 @@ export class Form extends React.Component {
           // .catch(error=>alert(error))
 
 
-          fetch('http://localhost:8080/index.php', {
+          fetch('http://localhost:8080/login', {
               method: 'POST',
               // body: formData
               // headers: { 'Content-Type': 'application/json' },
@@ -86,7 +86,7 @@ export class Form extends React.Component {
               onChange={this.handleChange} 
             />
             
-            <input type="submit" value="Отправить" />
+            <input type="submit" value="Войти" />
         </form>
       )
     }

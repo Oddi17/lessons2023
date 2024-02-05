@@ -1,12 +1,13 @@
 <?php
 
-namespace orderporject\lib;
+namespace orderproject\lib;
+
 //todo: Забрать настройки из конфига
 define('DB_PERSISTENCY', 'true');
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'postgres');
 define('DB_PASSWORD', '123');
-define('DB_DATABASE', 'mydb');
+define('DB_DATABASE', 'order');
 define('PDO_DSN', 'pgsql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE);
 
 
@@ -27,9 +28,9 @@ class DataBase
         if (!isset(self::$db)) {
             // Execute code catching potential exceptions
             try {
-                self::$db = new PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD);
-                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
+                self::$db = new \PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD);
+                self::$db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            } catch (\PDOException $e) {
                 // Close the database handler and trigger an error
                 self::Close();
                 trigger_error($e->getMessage(), E_USER_ERROR);
@@ -61,7 +62,7 @@ class DataBase
         $db = $this->openDataBase();
         $query = $db->query($string);
         if ($query) {
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            return $query->fetchAll(\PDO::FETCH_ASSOC);
         } else {
             return false;
         }
@@ -80,7 +81,7 @@ class DataBase
         $db = $this->openDataBase();
         $stmt = $db->prepare($query);
         $stmt->execute($data);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 

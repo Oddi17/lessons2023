@@ -1,8 +1,8 @@
 <?php
 
-namespace orderporject\controllers;
+namespace orderproject\controllers;
 
-use orderporject\models\ModelLogin;
+use orderproject\models\ModelLogin;
 
 class LoginController {
     public function actionAuth(){

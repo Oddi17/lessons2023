@@ -1,19 +1,21 @@
 <?php
 
-namespace orderporject\models;
+namespace orderproject\models;
 
-use orderporject\lib\DataBase;
+
+use orderproject\lib\DataBase;
 
 class ModelLogin {
     const SQL_SELECT_ALL_ACCOUNT = 'select login,password from account';
-    const SQL_INSERT_NEW_ACCOUNT = "insert into account(login,password,dt_create) values ('$login','$pas',now())";
+    // const SQL_INSERT_NEW_ACCOUNT = "insert into account(login,password,dt_create) values ('$login','$pas',now())";
 
     public function check(){
         try {
             $login = $_POST['email'] ;
             $passwd = $_POST['password'];
             return [true,$login,$passwd];
-        } catch (Excepton $e){
+
+        } catch (\Exception $e){
             return json_encode(['code'=>500,'message'=>$e->getMessage()]);
         }
     }
@@ -22,8 +24,8 @@ class ModelLogin {
     public function auth(){
         $login = $_POST['email'] ;
         $passwd = $_POST['password'];
-        $result = $this->check();
-        if (!$result[0]) return;
+        // $result = $this->check();
+        // if (!$result[0]) return;
         
         $db = new DataBase();
         $data = $db->getDataBase(ModelLogin::SQL_SELECT_ALL_ACCOUNT);
