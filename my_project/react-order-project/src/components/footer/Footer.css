@@ -1,0 +1,18 @@
+.footer{
+    width:100vw; 
+    background: aliceblue;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    color: var(--color-text-head);
+    box-shadow: 0 -1rem 3rem rgba(132 139 200 / 40%);
+    transition: all 0.3s ease;
+}
+
+.footer:hover{
+    box-shadow: none;
+}
+.footer .icons{
+    display: flex;
+    gap: 14px;
+}

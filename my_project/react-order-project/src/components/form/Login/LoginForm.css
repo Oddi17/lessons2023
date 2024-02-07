@@ -17,11 +17,12 @@
 .modal label {
     font-size: 16px;
     /* margin-bottom: 10px; */
-    font-weight: 500;
+    font-weight: 600;
 
 }
 
-.modal input[type=text] {
+.modal input[type=email],
+.modal input[type=password] {
     border: 1px solid black;
     width: 300px;
     height: 34px;

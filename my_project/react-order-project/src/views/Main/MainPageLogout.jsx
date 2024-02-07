@@ -1,12 +1,18 @@
-import CalendarSamp from '../../components/calendar/CalendarMUI/CalendarSamp'
+// import CalendarSamp from '../../components/calendar/CalendarMUI/CalendarSamp'
 import Collapse from '../../components/collapse/Collapse'
 import '../../components/collapse/Collapse.scss'
 import HeaderOut from '../../components/header/HeaderOut'
 import { useState } from 'react';
 import Modal from '../../components/modal/Modal'
+import Footer from '../../components/footer/Footer' 
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function MainPageLogout() {
     const [isModalOpen, setModalOpen] = useState(false);
+    const [isReg,setReg] = useState(false);
+
+    const navigate = useNavigate()
 
     const openModal = () => {
         setModalOpen(true);
@@ -14,8 +20,19 @@ export default function MainPageLogout() {
 
     const closeModal = () => {
         setModalOpen(false);
+        setReg(false);
     };
+    const switchModalContent = () => {
+        setReg(true);
+    }
 
+
+    useEffect(()=>{
+        let login = localStorage.getItem("login")
+        if (login){
+          navigate("/in")
+        }
+      },[])
     
     return(
         <div className="container">
@@ -23,7 +40,7 @@ export default function MainPageLogout() {
             <div className="main_container">
                     <section id="reserv">
                         <Collapse label="Забронировать" classIn="collapse first">
-                            <CalendarSamp/>
+                            {/* <CalendarSamp/> */}
                         </Collapse>
                     </section>
                 <section id="about">
@@ -44,7 +61,13 @@ export default function MainPageLogout() {
                  </section>
                  
             </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal} />
+            <Footer />
+            <Modal 
+                isOpen={isModalOpen} 
+                butClose={closeModal} 
+                isReg ={isReg}
+                butReg={switchModalContent} 
+            />
           </div>
     )
 }

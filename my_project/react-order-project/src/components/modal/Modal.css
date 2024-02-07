@@ -9,6 +9,7 @@
 }
 
 .modal {
+    
     margin: 0 auto;
     margin-top: 50vh;
     transform: translateY(-50%);
@@ -27,15 +28,16 @@
 
 }
 .modal-content{
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     justify-content: space-around; 
 }
 
-.modal .mybutton{
-    margin-top: 110px;
+.modal .mybutton.reg{
+    margin-top: 42px;
     padding: 10px;
     border: 1px solid #5a3aa7;
     border-radius: 6px;
@@ -47,7 +49,41 @@
     font-size: 20px;
     transition: all 0.3s ease;
 }
-.modal .mybutton:hover{
+.modal .mybutton.reg:hover{
     border: 1px solid #8b68db;
     background-color: #8b68db;
+}
+
+
+
+.modal .mybutton.close{ 
+    color: #5a3aa7;
+    transition: all 0.3s ease;
+    margin-left: 400px;
+    cursor: pointer;
+}
+.modal .mybutton.close span{
+    font-size: 32px;
+}
+
+
+.modal .mybutton.close:hover{
+    transform: scale(1.2, 1.2);
+}
+
+.modal h2{
+    color: #5a3aa7;
+}
+
+.modal form label{
+    color: #5a3aa7; 
+}
+.modal form input[type=email],
+.modal form input[type=password] {
+    border: 1px solid #b4b1bd;
+}
+
+.modal form input[type=email]:focus, 
+.modal form input[type=password]:focus  {
+    border: 1px solid #5a3aa7; 
 }

@@ -16,6 +16,12 @@ class LoginController {
         $result = $mdl->reg();
         echo $result;
     }
+    
+    public function actionLogout(){
+        $mdl = new ModelLogin();
+        $result = $mdl->logout();
+        echo $result;
+    }
 }
 
 

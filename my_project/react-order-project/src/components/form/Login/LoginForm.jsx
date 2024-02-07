@@ -1,5 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
+
+
 
 export class Form extends React.Component {
 
@@ -11,9 +14,33 @@ export class Form extends React.Component {
         };
         // this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
+        this.Url = this.props.ulrStr;
       }
+      
 
-      checkEmpty(){
+      redir = (data) => {
+        //const navigate = useNavigate();
+        
+        console.log(data)
+        React.useEffect(_ => {
+          if (data['code']==200) navigate('/main')
+        }, [data['code']==200])
+
+
+
+        // if (data['code']==200){
+          
+        //   console.log('ura!')
+        //   // setTimeout(function(){
+        //   //   navigate("/main")
+        //   // },3000)
+        //   navigate("/in")
+        // }
+
+    }
+
+
+      checkEmpty =()=>{
         let email = this.state.email
         let password = this.state.password
         let flag = (email.length === 0 || password.length === 0) ? true: false
@@ -40,7 +67,9 @@ export class Form extends React.Component {
           // fData.append('email',this.state.email)
           // fData.append('password',this.state.password)
 
-          const url = "http://localhost:8080/index.php"
+          // const url = "http://localhost:8080/index.php"
+          // const url = "http://localhost:8080/login"
+
           let fData = new FormData();
           fData.append('email',this.state.email)
           fData.append('password',this.state.password)
@@ -50,7 +79,7 @@ export class Form extends React.Component {
           // .catch(error=>alert(error))
 
 
-          fetch('http://localhost:8080/login', {
+          fetch(this.Url, {
               method: 'POST',
               // body: formData
               // headers: { 'Content-Type': 'application/json' },
@@ -59,8 +88,11 @@ export class Form extends React.Component {
               body: fData
           })
           .then(response => response.json())
-          .then(data => console.log(data))
+          .then(data => this.redir(data))
           .catch(error=>alert(error))
+          
+          
+
 
 
             event.preventDefault();

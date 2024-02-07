@@ -13,6 +13,8 @@ class Routes
         return [
             // Ваши маршруты здесь
             'login' => 'login/auth',
+            'reg' => 'login/reg',
+            'logout' => 'login/logout'
             // ...
         ];
     }

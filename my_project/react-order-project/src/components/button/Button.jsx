@@ -1,7 +1,8 @@
 
-export default function Button ({children,handleClick}){
+export default function Button ({children,handleClick,name}){
+    let nameBut = name ?  'mybutton' + ' ' + name : 'mybutton'
     return (
-    <div className='mybutton' onClick={handleClick}>
+    <div className={nameBut} onClick={handleClick}>
         {children} 
         </div>
     )

@@ -2,8 +2,10 @@ import './App.css'
 import './components/modal/Modal.css'
 import './components/form/Login/LoginForm.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import MainPageLogout from './views/Main/MainPageLogout'
+import MainPageLogin from './views/Main/MainPageLogin'
+import Protected from './components/protected/Protected';
+
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<MainPageLogout />} />
+              {/* <Route path="/in" element={<MainPageLogin />} /> */}
+              <Route path="/in" element={<Protected Component= {MainPageLogin} />} />
               {/* <Route path="/login" element={<Form/>}/> */}
           </Routes>
       </BrowserRouter>
