@@ -14,7 +14,7 @@ export default function Form (props) {
   useEffect(()=>{
     // let login = localStorage.getItem("login")
     // if (login){
-    //   navigate("/in")
+    //   navigate("/page")
     // }
     setTimeout(function(){
         setMsg("")
@@ -22,16 +22,6 @@ export default function Form (props) {
     },4000)
   },[msg])
 
-
-
-  // const redir = (data) => {
-  //   console.log(data);
-  //   if (data['code'] === 200) {
-  //       setTimeout(function(){
-  //           navigate('/in');
-  //       },2000)
-  //   }
-  // };
 
   const checkEmpty = () => {
     const flag = email.length === 0 || password.length === 0;
@@ -61,6 +51,7 @@ export default function Form (props) {
       fetch(Url, {
         method: 'POST',
         body: formData,
+        credentials: "include",
       })
         .then((response) => response.json())
         .then((response)=>{
@@ -69,22 +60,18 @@ export default function Form (props) {
                 setMsg(response['mes'])
                 setTimeout(function(){
                     localStorage.setItem("login",true)
-                    navigate('/in');
+                    navigate('/page');
                 },5000)
             }else{
               setError(response['mes'])
             }
             console.log(response)
         })
-        // .then((data) => redir(data))
-        // .catch((error) => alert(error));
         .catch((err)=>{
             // setError(err)
             console.log(err)
         })
-    }
-  };
-
+    }};
 
   return (
     <form onSubmit={handleSubmit} id="myForm">

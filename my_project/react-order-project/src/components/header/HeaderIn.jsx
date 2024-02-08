@@ -8,18 +8,22 @@ export default function Header() {
     const logoutSubmit = () =>{
         
         const urlLogout = "http://localhost:8080/logout"
-        // localStorage.clear()
-        // window.location.reload()
+        localStorage.clear()
+        window.location.reload() //обновление страницы
+        // localStorage.setItem("login","")
         navigate("/")
         fetch(urlLogout,{
-          method: 'GET'
+          method: 'GET',
+          credentials: "include",
         })
         .then((response)=>response.json())
         .then((data)=>console.log(data))
         .catch((err)=>{
           console.log(err)
-        })
-        localStorage.setItem("login","")
+        })  
+    }
+    const cabinet = () =>{
+      navigate("/cab")
     }
 
     return (
@@ -29,7 +33,8 @@ export default function Header() {
             <div>О нас</div>
             <div>Отзывы</div>
             {/* <div>Баланс</div> */}
-            <div>Личный кабинет</div>
+            {/* <div>Личный кабинет</div> */}
+            <Button handleClick={cabinet}>Личный кабинет</Button>
             {/* <div>Выйти</div> */}
             <Button handleClick={logoutSubmit}>Выйти</Button>
             {/* <Button handleClick={}>Выйти</Button> */}

@@ -30,7 +30,7 @@ export default function MainPageLogout() {
     useEffect(()=>{
         let login = localStorage.getItem("login")
         if (login){
-          navigate("/in")
+          navigate("/page")
         }
       },[])
     
@@ -49,7 +49,6 @@ export default function MainPageLogout() {
                 <div className="wallpaper">
                     <section id="menu">
                         <Collapse label="Меню" classIn="collapse second">
-                            {/* какой-то контент другой  */}
                             TEXT
                             TEXT 
                             TEXT

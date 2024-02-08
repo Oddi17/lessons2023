@@ -17,13 +17,11 @@ export default function Modal({ isOpen, butClose, butReg, isReg}) {
       }))
       isReg && isOpen &&(
         gsap.to(".modal .login",{
-          // opacity:0,
           x:1500,
           duration:1
       }))
       isReg && isOpen && (
         gsap.from(".modal .reg",{
-          // opacity:0,
           x:-1500,
           duration:1
       }))
@@ -42,9 +40,6 @@ export default function Modal({ isOpen, butClose, butReg, isReg}) {
                     </Button>
                     <h2>Войти в систему</h2>
                     <Form ulrStr={urlLog} butName="Войти"/>
-                    {/* <Button handleClick={onClose}>Закрыть</Button> */}
-
-                    {/* <Form ulr={urlReg}/> */}
                     <Button name="reg" handleClick={butReg}>Зарегистрироваться</Button>
                 </div>   
               { isReg && (

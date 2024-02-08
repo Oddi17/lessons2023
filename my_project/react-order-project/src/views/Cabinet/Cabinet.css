@@ -1,0 +1,105 @@
+.customer-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 18px 40px 0px #7090b033;
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+    padding: 50px;
+}
+
+
+.customer-container .mybutton {
+    /* width: 230px;
+    height: 62px; */
+    width: 180px;
+    height: 46px;
+    
+    /* background: #5B53FF; */
+    color: rgb(255, 255, 255);
+    /* font-family: Gilroy-Bold; */
+    /* font-size: 17px; */
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    /* text-align: center; */
+    border-radius: 26px;
+    background: rgb(91, 83, 255);
+    /* filter: blur(56px); */
+    /* background: rgb(77, 68, 255); */
+    box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer-container .mybutton:hover{
+    box-shadow: none;
+}
+
+.customer-container .mybutton span{
+    font-size: 17px;
+    line-height: 1.6;
+}
+.customer-container .mybutton.back{
+    /* color: rgb(143, 155, 186); */
+    background: none;
+    color:rgb(91, 83, 255);
+    box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
+}
+.customer-container .mybutton.back:hover{
+    box-shadow: none;
+}
+
+.customer-container .buttons{
+    margin-top: 60px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.customer-container h2{
+    text-align: center;
+}
+
+.customer-container .user-data{
+    margin-top: 40px;
+    margin-left: 50px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+.customer-container .cell-group{
+    display: flex;
+    gap:80px;
+    
+}
+
+.customer-container .cell{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.customer-container .cell span:first-child {
+    color: rgb(143, 155, 186);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+    /* text-align: left; */
+}
+.customer-container .cell span:last-child{
+    padding: 10px;
+    border-radius: 15px;
+    background: rgb(244, 247, 254);
+    display: inline;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgb(36, 36, 36);
+}
