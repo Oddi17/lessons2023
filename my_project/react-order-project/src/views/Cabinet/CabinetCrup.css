@@ -1,0 +1,129 @@
+@keyframes bounce {
+
+    0%,
+    20%,
+    60%,
+    100% {
+      transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    40% {
+      transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  
+    80% {
+      transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+  }
+
+.crup-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 18px 40px 0px #7090b033;
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* gap: 20px; */
+}
+
+
+.crup-container .mybutton {
+    width: 120px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(91, 83, 255);
+    box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
+}
+
+.crup-container .mybutton:hover{
+    box-shadow: none;
+}
+
+.crup-container .mybutton span{
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.crup-container h2{
+    color: rgb(91, 83, 255);
+    text-align: center;
+}
+
+
+.crup-container label {
+    color: rgb(143, 155, 186);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.crup-container form{
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    /* justify-content: start; */
+    gap: 15px;
+    margin-top:30px;
+}
+.crup-container .buttons{
+    display: flex;
+    justify-content: end;
+}
+
+
+.crup-container label select,
+.crup-container label input  {
+    font-size: 14px;
+    background: #FFFFFF;
+    border: 1px solid #CACACA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.crup-container input[type=submit] {
+
+    width: 120px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    border-radius: 26px;
+    background: rgb(91, 83, 255);
+    box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.crup-container input[type=submit]:hover{
+    box-shadow: none;
+}
+
+
+

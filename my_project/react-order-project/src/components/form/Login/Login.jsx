@@ -59,7 +59,9 @@ export default function Form (props) {
                 setError("")
                 setMsg(response['mes'])
                 setTimeout(function(){
-                    localStorage.setItem("login",true)
+                    localStorage.setItem("auth",true)
+                    localStorage.setItem("login",email)
+                    localStorage.setItem("id",response['id'])
                     navigate('/page');
                 },5000)
             }else{

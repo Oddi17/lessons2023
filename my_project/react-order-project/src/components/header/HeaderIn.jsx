@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 export default function Header() {
 
     const navigate = useNavigate()
+
     const logoutSubmit = () =>{
-        
         const urlLogout = "http://localhost:8080/logout"
         localStorage.clear()
         window.location.reload() //обновление страницы
@@ -32,13 +32,8 @@ export default function Header() {
           <div className="nav">
             <div>О нас</div>
             <div>Отзывы</div>
-            {/* <div>Баланс</div> */}
-            {/* <div>Личный кабинет</div> */}
             <Button handleClick={cabinet}>Личный кабинет</Button>
-            {/* <div>Выйти</div> */}
             <Button handleClick={logoutSubmit}>Выйти</Button>
-            {/* <Button handleClick={}>Выйти</Button> */}
-            
           </div>
       </header>
     )

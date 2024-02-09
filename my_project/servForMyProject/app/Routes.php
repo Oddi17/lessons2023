@@ -14,7 +14,8 @@ class Routes
             // Ваши маршруты здесь
             'login' => 'login/auth',
             'reg' => 'login/reg',
-            'logout' => 'login/logout'
+            'logout' => 'login/logout',
+            'user' => 'cabinet/check'
             // ...
         ];
     }

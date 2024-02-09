@@ -14,7 +14,6 @@ define('PDO_DSN', 'pgsql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE);
 
 class DataBase
 {
-    const SQL_SELECT_ALL_ACCOUNT =  'select * from account';
     private static $db;
 
     // Clear the PDO class instance
@@ -86,9 +85,4 @@ class DataBase
 
 
 }
-
-//define('SQL_SELECT_ALL_ACCOUNT', 'select * from account');
-//$db = new DataBase();
-//$result = $db->getDataBase(SQL_SELECT_ALL_ACCOUNT);
-// var_dump($result);
 

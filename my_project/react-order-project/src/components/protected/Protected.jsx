@@ -7,12 +7,13 @@ export default function Protected(props) {
     const {Component} = props
 
     useEffect(()=>{
-        let login = localStorage.getItem("login")
-        if (!login) {
+        let auth = localStorage.getItem("auth")
+        if (!auth) {
             // localStorage.setItem()
             navigate("/",{replace:true})
         }
     },[])
+
 
     return (
         <Component />

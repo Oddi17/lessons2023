@@ -2,45 +2,48 @@ import Button from '../../components/button/Button'
 import { useNavigate } from 'react-router-dom'
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
+import { useEffect } from "react"
+import sad from '/sad.png'
 
 export default function Cabinet() {
-    //let perem  = // о наличии пользователя в базе, возможно сохранять в локалстораже, после логина в 
     const navigate = useNavigate()
+    let isUser = false
+    const loginUser = localStorage.getItem("login")
+
+    useEffect(()=>{
+            const idUser = localStorage.getItem("id")
+            const urlCheck = 'http://localhost:8080/user?id=' + idUser
+            fetch(urlCheck)
+            .then((response)=>response.json())
+            .then((response)=>{
+                isUser = response['res'] == 200 ? true : false;
+                console.log(isUser)
+            })
+            .catch((err)=>console.log(err))
+        },[])
 
     useGSAP(()=>{
         gsap.from(".customer-container",{
-            // opacity:0,
             scale:0,
             duration:1
         })
     },[])
 
-    const create = () => {
-
+    const toCrup = () => {
+        navigate('/cabcrup')
     }
-    const change = () => {
 
-    }
     const back = () =>{
         navigate("/page")
     }
     return (
-        <div className="customer-container">
-
-            {/* <Button handleClick={create}>
-                Создать 
-                <span className="material-symbols-outlined">add</span>
-            </Button> */}
-                
-            {/* <div className="but">Создать</div> */}
+        <div className="customer-container"> 
             {/* <div>
                 Создать 
                 <Form> в случае регистрации профиля</Form> 
             </div> */}
-            
-            {/* дата рождения, имя, телефон, бонусы, пол, еще логин тут указать */}
-            <div className="customer-content">
-                <h2>Пользователь: email</h2>
+            { !isUser ? (<div className="customer-content-true">
+                <h2>Пользователь: {loginUser}</h2>
                 <div className='user-data'>
                     <div className='cell-group'>
                         <div className = "cell">
@@ -67,9 +70,8 @@ export default function Cabinet() {
                         </div>
                     </div>
                 </div>
-               
                 <div className='buttons'>
-                    <Button handleClick={change}>
+                    <Button handleClick={toCrup}>
                         Изменить
                         <span className="material-symbols-outlined">add</span>
                     </Button>
@@ -77,10 +79,21 @@ export default function Cabinet() {
                         На главную
                     </Button>
                 </div>
-                
-            </div>
-            
-
+            </div>) :
+                (<div className="customer-content-false">
+                    <span>Пользователя пока нет...</span>
+                    <img src={sad}></img>
+                    <div className='buttons-false'>
+                        <Button handleClick={toCrup}>
+                            Создать 
+                            <span className="material-symbols-outlined">add</span>
+                        </Button>
+                        <Button name="back" handleClick={back}>
+                            На главную
+                        </Button>
+                    </div>
+                </div>
+            )}
         </div>
 
         
