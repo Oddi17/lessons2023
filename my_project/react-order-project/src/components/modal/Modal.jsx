@@ -1,5 +1,4 @@
 import Button from '../button/Button'
-// import {Form} from '../form/Login/LoginForm'
 import Form from '../form/Login/Login'
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
@@ -39,7 +38,7 @@ export default function Modal({ isOpen, butClose, butReg, isReg}) {
                         </span>
                     </Button>
                     <h2>Войти в систему</h2>
-                    <Form ulrStr={urlLog} butName="Войти"/>
+                    <Form ulrStr={urlLog} whereTo={'mainpage'} butName="Войти"/>
                     <Button name="reg" handleClick={butReg}>Зарегистрироваться</Button>
                 </div>   
               { isReg && (
@@ -50,7 +49,7 @@ export default function Modal({ isOpen, butClose, butReg, isReg}) {
                         </span>
                     </Button>
                     <h2>Регистрация</h2>
-                    <Form ulrStr={urlReg} butName="Зарегистрироваться"/>
+                    <Form ulrStr={urlReg} whereTo={'startpage'} butName="Зарегистрироваться"/>
                  </div>
                )}
             </div>

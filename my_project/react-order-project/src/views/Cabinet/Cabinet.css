@@ -13,7 +13,7 @@
 }
 
 
-.customer-container .mybutton {
+.customer-container .mybutton.back {
     /* width: 230px;
     height: 62px; */
     width: 180px;
@@ -43,19 +43,20 @@
     box-shadow: none;
 }
 
-.customer-container .mybutton span{
+/* .customer-container .mybutton span{
     font-size: 17px;
     line-height: 1.6;
-}
-.customer-container .mybutton.back{
-    /* color: rgb(143, 155, 186); */
+} */
+
+
+/* .customer-container .mybutton.back{
     background: none;
     color:rgb(91, 83, 255);
     box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
 }
 .customer-container .mybutton.back:hover{
     box-shadow: none;
-}
+} */
 
 .customer-container .buttons{
     margin-top: 60px;
@@ -86,14 +87,20 @@
     gap: 5px;
 }
 
-.customer-container .cell span:first-child {
+.customer-container .cell span.title {
     color: rgb(143, 155, 186);
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
     /* text-align: left; */
 }
-.customer-container .cell span:last-child{
+.customer-container .cell div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.customer-container .cell span.name{
     padding: 10px;
     border-radius: 15px;
     background: rgb(244, 247, 254);
@@ -102,6 +109,16 @@
     font-weight: 500;
     line-height: 24px;
     color: rgb(36, 36, 36);
+}
+.customer-container .cell span.pencil{
+    font-size: 16px;
+    line-height: 24px;
+    transition: all 0s ease;
+    cursor: pointer;
+}
+.customer-container .cell span.pencil:hover{
+    transform: scale(1.3);
+
 }
 
 

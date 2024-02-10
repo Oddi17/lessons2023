@@ -1,23 +1,40 @@
-import Button from '../../components/button/Button'
 import { useNavigate } from 'react-router-dom'
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
-import { useEffect } from "react"
-import sad from '/sad.png'
+import { useEffect,useState } from "react"
+
+import CabinetEmpty from './CabinetEmpty'
+import CabinetFull from './CabinetFull'
+import ModalCabinet from '../../components/modal/ModalCabinet/ModalCabinet'
 
 export default function Cabinet() {
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [titleBut,setTitleBut] = useState(null);
     const navigate = useNavigate()
-    let isUser = false
-    const loginUser = localStorage.getItem("login")
+    const [isUser,setIsUser] = useState(false)
+    const [dataUser,setDatauser] = useState(null)
+    const idUser = localStorage.getItem("id")
+    const urlCheck = 'http://localhost:8080/user?id=' + idUser
+    
+    const openModal = (event) => {
+        setModalOpen(true);
+        const strType = event.target.classList[2]
+        setTitleBut(strType)
+    };
 
+    const closeModal = () => {
+        setModalOpen(false);
+        setTitleBut(null)
+    };
+    
     useEffect(()=>{
-            const idUser = localStorage.getItem("id")
-            const urlCheck = 'http://localhost:8080/user?id=' + idUser
             fetch(urlCheck)
             .then((response)=>response.json())
             .then((response)=>{
-                isUser = response['res'] == 200 ? true : false;
-                console.log(isUser)
+                if (response['res'] == 200) {
+                    setIsUser(true)
+                    setDatauser(response['data'][0])
+                }
             })
             .catch((err)=>console.log(err))
         },[])
@@ -29,73 +46,24 @@ export default function Cabinet() {
         })
     },[])
 
-    const toCrup = () => {
-        navigate('/cabcrup')
+    const toCreate = () => {
+        navigate('/cab/creat')
     }
-
-    const back = () =>{
+    const toUpdate = () => {
+        navigate('/cab/update')
+    }
+    const back = () => {
         navigate("/page")
     }
     return (
+        <>
         <div className="customer-container"> 
-            {/* <div>
-                Создать 
-                <Form> в случае регистрации профиля</Form> 
-            </div> */}
-            { !isUser ? (<div className="customer-content-true">
-                <h2>Пользователь: {loginUser}</h2>
-                <div className='user-data'>
-                    <div className='cell-group'>
-                        <div className = "cell">
-                            <span>Имя</span>
-                            <span> Майкл</span>
-                        </div>
-                        <div className = "cell">
-                            <span>Дата рождения</span>
-                            <span>12.05.1989</span>
-                        </div>
-                        <div className = "cell">
-                            <span>Пол</span>
-                            <span>Муж</span>
-                        </div>
-                    </div>
-                    <div className='cell-group'>
-                        <div className = "cell">
-                            <span>Телефон</span>
-                            <span>+7989231411</span>
-                        </div>
-                        <div className = "cell">
-                            <span>Бонусы</span>
-                            <span> 0 р.</span>
-                        </div>
-                    </div>
-                </div>
-                <div className='buttons'>
-                    <Button handleClick={toCrup}>
-                        Изменить
-                        <span className="material-symbols-outlined">add</span>
-                    </Button>
-                    <Button name="back" handleClick={back}>
-                        На главную
-                    </Button>
-                </div>
-            </div>) :
-                (<div className="customer-content-false">
-                    <span>Пользователя пока нет...</span>
-                    <img src={sad}></img>
-                    <div className='buttons-false'>
-                        <Button handleClick={toCrup}>
-                            Создать 
-                            <span className="material-symbols-outlined">add</span>
-                        </Button>
-                        <Button name="back" handleClick={back}>
-                            На главную
-                        </Button>
-                    </div>
-                </div>
-            )}
+            { isUser ?   
+            <CabinetFull data={dataUser} handleCrup={toUpdate} handleBack={back} handleEdit={openModal} ></CabinetFull>  : 
+            <CabinetEmpty handleCrup={toCreate} handleBack={back}></CabinetEmpty>
+            }   
         </div>
-
-        
+        {isModalOpen && (<ModalCabinet title={titleBut} handleBut = {closeModal} />)}
+        </>    
     )
 }

@@ -7,7 +7,6 @@ import '../../components/footer/Footer.css'
 
 
 export default function MainPageLogin() {
-
     return(
         <div className="container">
             <HeaderIn/>

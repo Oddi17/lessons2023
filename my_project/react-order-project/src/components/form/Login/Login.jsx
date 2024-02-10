@@ -1,5 +1,4 @@
 import React, { useState,useEffect} from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function Form (props) {
@@ -12,20 +11,15 @@ export default function Form (props) {
   const navigate = useNavigate();
   
   useEffect(()=>{
-    // let login = localStorage.getItem("login")
-    // if (login){
-    //   navigate("/page")
-    // }
     setTimeout(function(){
         setMsg("")
-        // setError("")
     },4000)
   },[msg])
 
 
   const checkEmpty = () => {
     const flag = email.length === 0 || password.length === 0;
-    console.log(flag, email, password);
+    // console.log(flag, email, password);
     return flag;
   };
 
@@ -58,12 +52,18 @@ export default function Form (props) {
             if (response['code'] == 200) {
                 setError("")
                 setMsg(response['mes'])
-                setTimeout(function(){
-                    localStorage.setItem("auth",true)
-                    localStorage.setItem("login",email)
-                    localStorage.setItem("id",response['id'])
-                    navigate('/page');
-                },5000)
+                setTimeout( function() {
+                    if (props.whereTo === "mainpage"){
+                        localStorage.setItem("auth",true)
+                        localStorage.setItem("login",email)
+                        localStorage.setItem("id",response['id'])
+                        setPassword("")
+                        navigate("/page")
+                    } else if (props.whereTo === "startpage") {
+                      navigate("/",{replace:true})
+                      window.location.reload()
+                    }
+                },3000)
             }else{
               setError(response['mes'])
             }

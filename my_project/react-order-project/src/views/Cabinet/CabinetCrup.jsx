@@ -4,13 +4,18 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
 import { useNavigate } from 'react-router-dom';
 
-export default function CabinetCrup(){
-    // const urlCr = "http://localhost:8080/"
-    // const urlUp = "http://localhost:8080/"
+export default function CabinetCrup({type}){
 
     const navigate = useNavigate();
 
+    let urlCrup = ""
+    if ( type ==='create'){
+        urlCrup = "http://localhost:8080/create"
+    }else if (type === 'update'){
+        urlCrup = "http://localhost:8080/update"
+    }
 
+    
     const handleBack = () => {
         navigate('/cab')
     }
@@ -25,7 +30,7 @@ export default function CabinetCrup(){
     return(
         <div className="crup-container">
             <h2>Создание данных пользователя</h2>
-            <CustomerForm ulrStr={''} />
+            <CustomerForm ulrStr={urlCrup} />
             <div className='buttons'>
                 <Button  handleClick={handleBack}>
                     Назад

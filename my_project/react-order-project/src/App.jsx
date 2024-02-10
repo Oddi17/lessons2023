@@ -11,10 +11,9 @@ import './views/Cabinet/CabinetCrup.css'
 import Protected from './components/protected/Protected';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-phone-input-2/lib/style.css';
-import CustomerForm from './components/form/Customer/CustomerForm'
 import './App.css'
+import './components/modal/ModalCabinet/ModalCabinet.css'
 
-// import './components/form/Customer/CustomerForm.css'
 
 
 export default function App() {
@@ -23,11 +22,10 @@ export default function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<MainPageLogout />} />
-              {/* <Route path="/in" element={<MainPageLogin />} /> */}
               <Route path="/page" element={<Protected Component= {MainPageLogin} />} />
-              {/* <Route path="/login" element={<Form/>}/> */}
               <Route path="/cab" element={<Cabinet />} />
-              <Route path="/cabcrup" element={<CabinetCrup />} />
+              <Route path="/cab/creat" element={<CabinetCrup type={'create'}/>} />
+              <Route path="/cab/update" element={<CabinetCrup type={'update'}/>} />
           </Routes>
       </BrowserRouter>
     </div>
