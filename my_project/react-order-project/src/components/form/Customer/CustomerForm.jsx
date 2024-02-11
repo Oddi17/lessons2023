@@ -128,6 +128,7 @@ export default function CustomerForm({ulrStr}) {
                 inputProps={{
                     pattern: '\\+7[0-9]{10}',
                     required: true,
+                    maxlength: "12"
                 }}
                 autoFormat={false}
                 placeholder="+79851112228"/>

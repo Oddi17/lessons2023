@@ -11,13 +11,14 @@ export default function CabinetForm({typeForm}){
     const [msg,setMsg] = useState('');
     const [error,setError] = useState('');
     const ulrStr = "http://localhost:8080/update"
+
     let formNeed = null
+
     useEffect(()=>{
       setTimeout(function(){
           setMsg("")
       },4000)
     },[msg])
-    console.log(data)
        
     const handleBirthdateChange = (date) => {
         const day = date.getDate();
@@ -28,10 +29,8 @@ export default function CabinetForm({typeForm}){
         const formattedDay = day < 10 ? `0${day}` : day;
         const formattedMonth = month < 10 ? `0${month}` : month;
         const formatDate = `${formattedDay}/${formattedMonth}/${year}`;
-        // const formatDate = `${year}-${formattedMonth}-${formattedDay}`;
-        setData(date);
-        setDatePicker(formatDate);
-
+        setData(formatDate);
+        setDatePicker(date);
     };
 
     const handleChange = (event) => {
@@ -45,11 +44,10 @@ export default function CabinetForm({typeForm}){
 
     const handleSubmit = (event) => {
         const formData = new FormData();
-        formData.append('data', firstName);
+        formData.append('data', data);
         formData.append('id',localStorage.getItem('id'))
         event.preventDefault();
-        console.log(firstName)
-        console.log(formData)
+
         return
         fetch(ulrStr, {
             method: 'POST',
@@ -72,23 +70,19 @@ export default function CabinetForm({typeForm}){
               // setError(err)
                 console.log(err)
             })
-
       };
 
-
       if (typeForm === "Имя") {
-        formNeed = <label>
-                        Имя
-                        <input 
+        formNeed = 
+                    <input 
                         type="text" 
                         required 
                         name="name" 
-                        placeholder="Ваше имя" 
                         value={data}
                         onChange={handleChange} />
-                    </label>
+          
       }else if (typeForm === "Дата рождения") {
-        formNeed = <label>Дата рождения:
+        formNeed = 
                 <DatePicker 
                     selected={datePicker} 
                     name="dt_birth"
@@ -98,19 +92,18 @@ export default function CabinetForm({typeForm}){
                     showMonthDropdown
                     dropdownMode="select"
                     dateFormat="dd.MM.yyyy" />
-                </label>
+        
       }else if (typeForm === "Пол"){
-        formNeed =    <label>
-                    Пол:
+        formNeed =    
                     <select value={data} name="sex" onChange={handleChange}>
+                        <option value=""></option>
                         <option value="true">Мужской</option>
                         <option value="false">Женский</option>
                     </select>
-                </label>
+             
 
       }else if (typeForm === "Телефон") {
-        formNeed =    <label>
-                    Телефон:
+        formNeed =   
                     <PhoneInput
                         country={'ru'}
                         name = 'phone'
@@ -119,23 +112,23 @@ export default function CabinetForm({typeForm}){
                         inputProps={{
                             pattern: '\\+7[0-9]{10}',
                             required: true,
+                            maxlength: "12"
                         }}
                         autoFormat={false}
                         placeholder="+79851112228"/>
-                </label>
+            
       }
 
-
     return(
-        <form onSubmit={handleSubmit} id="customerForm">
+        <form onSubmit={handleSubmit} id="cabinetForm">
             {formNeed}
             <p>
-            {  
-            error !== "" ?
-            <span className='error'> {error} </span> :
-            <span className='success'> {msg} </span>
-            }
-        </p>
+                {  
+                error !== "" ?
+                <span className='error'> {error} </span> :
+                <span className='success'> {msg} </span>
+                }
+            </p>
         <input type="submit" value="Изменить" />
     </form>
     )

@@ -1,6 +1,6 @@
 import './App.css'
 import './components/modal/Modal.css'
-import './components/form/Login/LoginForm.css'
+import './components/form/Login/Login.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPageLogout from './views/Main/MainPageLogout'
 import MainPageLogin from './views/Main/MainPageLogin'

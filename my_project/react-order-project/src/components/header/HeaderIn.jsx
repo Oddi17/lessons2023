@@ -31,7 +31,6 @@ export default function Header() {
         <h2>ST.Restaurant</h2>
           <div className="nav">
             <div>О нас</div>
-            <div>Отзывы</div>
             <Button handleClick={cabinet}>Личный кабинет</Button>
             <Button handleClick={logoutSubmit}>Выйти</Button>
           </div>

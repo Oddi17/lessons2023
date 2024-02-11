@@ -19,10 +19,12 @@ export default function ModalCabinet({handleBut,title}) {
             }
     },[])
     
-    // useGSAP(()=>{
-    //   isOpen && ()
-        
-    // },[])
+    useGSAP(()=>{
+        gsap.from(".modal-cabinet",{
+            y:-800,
+            duration:1
+        })
+    },[])
 
   
   return (

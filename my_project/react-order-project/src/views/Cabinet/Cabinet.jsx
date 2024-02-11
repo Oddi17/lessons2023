@@ -11,7 +11,7 @@ export default function Cabinet() {
     const [isModalOpen, setModalOpen] = useState(false);
     const [titleBut,setTitleBut] = useState(null);
     const navigate = useNavigate()
-    const [isUser,setIsUser] = useState(false)
+    // const [isUser,setIsUser] = useState(false)
     const [dataUser,setDatauser] = useState(null)
     const idUser = localStorage.getItem("id")
     const urlCheck = 'http://localhost:8080/user?id=' + idUser
@@ -21,7 +21,7 @@ export default function Cabinet() {
         const strType = event.target.classList[2]
         setTitleBut(strType)
     };
-
+    
     const closeModal = () => {
         setModalOpen(false);
         setTitleBut(null)
@@ -32,13 +32,14 @@ export default function Cabinet() {
             .then((response)=>response.json())
             .then((response)=>{
                 if (response['res'] == 200) {
-                    setIsUser(true)
+                    // setIsUser(true)
                     setDatauser(response['data'][0])
                 }
             })
             .catch((err)=>console.log(err))
         },[])
-
+    
+        
     useGSAP(()=>{
         gsap.from(".customer-container",{
             scale:0,
@@ -58,9 +59,10 @@ export default function Cabinet() {
     return (
         <>
         <div className="customer-container"> 
-            { isUser ?   
-            <CabinetFull data={dataUser} handleCrup={toUpdate} handleBack={back} handleEdit={openModal} ></CabinetFull>  : 
-            <CabinetEmpty handleCrup={toCreate} handleBack={back}></CabinetEmpty>
+            { dataUser === null ? null : 
+                (dataUser ?   
+                <CabinetFull data={dataUser} handleCrup={toUpdate} handleBack={back} handleEdit={openModal} ></CabinetFull>  : 
+                <CabinetEmpty handleCrup={toCreate} handleBack={back}></CabinetEmpty>)
             }   
         </div>
         {isModalOpen && (<ModalCabinet title={titleBut} handleBut = {closeModal} />)}

@@ -1,9 +1,7 @@
 import Button from '../../components/button/Button'
 
-export default function CabinetFull({data,handleCrup, handleBack,handleEdit }) {
+export default function CabinetFull({data,handleBack,handleEdit}) {
   const loginUser = localStorage.getItem('login')
-
-
 
   return (
     <>
@@ -31,7 +29,7 @@ export default function CabinetFull({data,handleCrup, handleBack,handleEdit }) {
               
             </div>
             <div className="cell gender">
-              <span className='title' >Пол</span>
+              <span className='title'>Пол</span>
               <div>
                 {data.sex ? <span className="name">Муж</span> : <span className="name">Жен</span>}
                 <Button name="edit" handleClick={handleEdit}>
@@ -57,10 +55,6 @@ export default function CabinetFull({data,handleCrup, handleBack,handleEdit }) {
           </div>
         </div>
         <div className="buttons">
-          {/* <Button name="back" handleClick={handleCrup}>
-            Изменить
-            <span className="material-symbols-outlined">add</span>
-          </Button> */}
           <Button name="back" handleClick={handleBack}>
             На главную
           </Button>
