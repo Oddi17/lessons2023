@@ -70,7 +70,7 @@
 
 .customer-container .user-data{
     margin-top: 40px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     display: flex;
     gap: 30px;
     flex-direction: column;
@@ -131,4 +131,31 @@
     display: flex;
     gap: 50px;
     justify-content: center;
+}
+
+
+.customer-container .mybutton.create{
+    background: none;
+    color:rgb(91, 83, 255);
+    box-shadow: rgba(77, 68, 255, 56) 0px 12px 42px;
+
+
+    width: 180px;
+    height: 46px;
+    
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+
+    border-radius: 26px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.customer-container .mybutton.create:hover{
+    box-shadow: none;
 }

@@ -10,7 +10,7 @@ export default function CabinetEmpty({handleCrup,handleBack}) {
         <span>Пользователя пока нет...</span>
         <img src={sad}></img>
         <div className="buttons-false">
-          <Button handleClick={handleCrup}>
+          <Button name="create" handleClick={handleCrup}>
             Создать
             <span className="material-symbols-outlined">add</span>
           </Button>
