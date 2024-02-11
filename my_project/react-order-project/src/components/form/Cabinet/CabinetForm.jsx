@@ -4,15 +4,17 @@ import DatePicker from 'react-datepicker';
 import PhoneInput from 'react-phone-input-2';
 
 export default function CabinetForm({typeForm}){
-
+    console.log("render")
     const navigate = useNavigate();
     const [data,setData] = useState('');
     const [datePicker,setDatePicker] = useState(null);
+    // const [type,setType] = useState('');
     const [msg,setMsg] = useState('');
     const [error,setError] = useState('');
     const ulrStr = "http://localhost:8080/update"
 
     let formNeed = null
+    let type = ""
 
     useEffect(()=>{
       setTimeout(function(){
@@ -46,33 +48,36 @@ export default function CabinetForm({typeForm}){
         const formData = new FormData();
         formData.append('data', data);
         formData.append('id',localStorage.getItem('id'))
+        formData.append('column',type)
         event.preventDefault();
-
-        return
+        // console.log(formData.getAll('data'));
+        // console.log(formData.getAll('id'));
+        // console.log(formData.getAll('column'));
+        // return
         fetch(ulrStr, {
             method: 'POST',
             body: formData,
-            credentials: "include",
+            credentials: "include"
           })
             .then((response) => response.json())
             .then((response)=>{
                   if (response['res'] == 200) {
                     setError("")
                     setMsg(response['mes'])
-                    // console.log('yes')
-                    navigate('/cab')
+                    // navigate('/cab')
                   }else{
                     setError(response['mes'])
                   }
                   console.log(response)
             })
             .catch((err)=>{
-              // setError(err)
+                setError(err)
                 console.log(err)
             })
       };
 
       if (typeForm === "Имя") {
+        type = "name"
         formNeed = 
                     <input 
                         type="text" 
@@ -82,6 +87,9 @@ export default function CabinetForm({typeForm}){
                         onChange={handleChange} />
           
       }else if (typeForm === "Дата рождения") {
+        // setType("dt_birth")
+        type = "dt_birth"
+
         formNeed = 
                 <DatePicker 
                     selected={datePicker} 
@@ -94,6 +102,8 @@ export default function CabinetForm({typeForm}){
                     dateFormat="dd.MM.yyyy" />
         
       }else if (typeForm === "Пол"){
+        // setType("sex")
+        type = "sex"
         formNeed =    
                     <select value={data} name="sex" onChange={handleChange}>
                         <option value=""></option>
@@ -103,6 +113,8 @@ export default function CabinetForm({typeForm}){
              
 
       }else if (typeForm === "Телефон") {
+        // setType("phone")
+        type = "phone"
         formNeed =   
                     <PhoneInput
                         country={'ru'}
@@ -112,7 +124,7 @@ export default function CabinetForm({typeForm}){
                         inputProps={{
                             pattern: '\\+7[0-9]{10}',
                             required: true,
-                            maxlength: "12"
+                            maxLength: "12"
                         }}
                         autoFormat={false}
                         placeholder="+79851112228"/>

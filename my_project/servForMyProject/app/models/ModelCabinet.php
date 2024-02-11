@@ -11,8 +11,9 @@ class ModelCabinet {
     //to_char(some_date, 'dd.mm.yyyy')
     const GET_USER = " select * from customer where id_account = :id";
     const SET_USER = " insert into customer(name,dt_birth,sex,phone,id_account) values(:name,:birthdate,:gender,:phone,:id)";
-    const UPDATE_USER  = "update customer set :data[0] where :data";
-
+    // const UPDATE_USER  = "update customer set :column = :datauser where id_account = :id ";
+    // const UPDATE_USER = "update customer set name = 'Mister_2000' where id_account = 13";
+    // const UPDATE_USER = "insert into customer(:column) values(:data) where id_account = :id ";
     public function checkUser(){
         $id = $_GET['id'] ?? null;
         $dataReq = ["id"=>$id];
@@ -41,8 +42,15 @@ class ModelCabinet {
 
     public function updateUser(){
         $data= $_POST ?? null;
-        
-        // var_dump($_POST);
-        return $data;
+        $db = new DataBase();
+        try{
+            // var_dump($data);
+            // $db -> setBasePrepare(self::UPDATE_USER,$data);
+            $db -> updateBase($data);
+            return json_encode(["res"=>200,"mes"=>"Параметр успешно изменен!"]);
+        }catch (\Exception $e) {
+            // echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
+            return json_encode(["res"=>500,"mes"=>"ошибка в базе","error"=>$e->getMessage()]);
+        }
     }
 }

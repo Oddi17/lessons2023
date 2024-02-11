@@ -83,6 +83,19 @@ class DataBase
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function updateBase($dataUser)
+    {
+        $column = $dataUser["column"];
+        $data = $dataUser["data"];
+        $id = $dataUser["id"];
+        $db = $this->openDataBase();
+        $query = "UPDATE customer SET $column = '$data' WHERE id_account = $id ";
+        $stmt = $db->prepare($query);
+        // $stmt->bindParam(':data', $data);
+        // $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+
 
 }
 
