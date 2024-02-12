@@ -23,9 +23,11 @@ export default function App() {
           <Routes>
               <Route path="/" element={<MainPageLogout />} />
               <Route path="/page" element={<Protected Component= {MainPageLogin} />} />
-              <Route path="/cab" element={<Cabinet />} />
+              {/* <Route path="/cab" element={<Cabinet />} /> */}
+              <Route path="/cab" element={<Protected Component= {Cabinet} />} />
               <Route path="/cab/creat" element={<CabinetCrup type={'create'}/>} />
               <Route path="/cab/update" element={<CabinetCrup type={'update'}/>} />
+              
           </Routes>
       </BrowserRouter>
     </div>

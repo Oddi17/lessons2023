@@ -19,7 +19,6 @@ export default function Form (props) {
 
   const checkEmpty = () => {
     const flag = email.length === 0 || password.length === 0;
-    // console.log(flag, email, password);
     return flag;
   };
 

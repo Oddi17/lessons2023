@@ -27,6 +27,10 @@ export default function CalendarForm() {
     };
 
     const handleSubmit = (event) => {
+        if (!localStorage.getItem('auth')){
+          alert('Чтобы произвести бронирование необходимо войти на сайт')
+          return
+        }
         const formData = new FormData();
         formData.append('orderdate', datetime);
         formData.append('id',localStorage.getItem('id'))
