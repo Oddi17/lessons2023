@@ -26,7 +26,7 @@ class ModelLogin {
 
 
     public function auth(){
-        $login = $_POST['email'] ?? null ;
+        $login = $_POST['email'] ?? null;
         $passwd = $_POST['password'] ?? null;
         // $result = $this->check();
         // if (!$result[0]) return;
@@ -34,7 +34,6 @@ class ModelLogin {
         $db = new DataBase();
         $data = $db->getDataBase(ModelLogin::SQL_SELECT_ALL_ACCOUNT);
         
-        // var_dump($data);
         foreach($data as $account){
             if ($account["login"] == $login){
                 if (password_verify($passwd,$account["password"])){
@@ -75,7 +74,6 @@ class ModelLogin {
         $datUser = ['login'=>$login,'password'=>$pas];
         
         $db->setBasePrepare(ModelLogin::SQL_INSERT_NEW_ACCOUNT,$datUser);
-        // return "Регистрация прошла успешно!";
         $_SESSION['is_auth']= True;
         return json_encode(['code'=>200,'mes'=>'Регистрация прошла успешно!','auth'=>'true']);
     }

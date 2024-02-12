@@ -3,7 +3,7 @@ import sad from '/sad.png'
 
 export default function CabinetEmpty({handleCrup,handleBack}) {
 
-
+  
   return (
     <>
       <div className="customer-content-false">

@@ -10,7 +10,9 @@ export default function Footer(){
                 <img src={telegram}></img>
                 <img src={instagram}></img>
                 <i className="bi bi-instagram"></i>
-            </div>    
+            </div>  
+             
+            <span>г. Санкт-Петербруг, ул. Влада-Великого, д. 17</span>
         </div>
 
 

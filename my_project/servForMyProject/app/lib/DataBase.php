@@ -92,8 +92,33 @@ class DataBase
         $query = "UPDATE customer SET $column = '$data' WHERE id_account = $id ";
         $stmt = $db->prepare($query);
         // $stmt->bindParam(':data', $data);
-        // $stmt->bindParam(':id', $id);
         $stmt->execute();
+    }
+
+    public function addOrderBase($time,$id){
+        try{
+            $db = $this->openDataBase();
+            $query = "CALL add_order_procedure('$time',$id)";
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            return  ["is_done" => true,"error_message"=>""];
+        }catch (\PDOException $e) {
+            self::Close();
+            $error_mes = $e->getMessage();
+            $possibleMatches = array(
+                '/Значение уже существует в таблице/',
+                '/Пользователя не существует/',
+            );
+            foreach ($possibleMatches as $pattern) {
+                
+                preg_match($pattern, $e->getMessage(), $matches);
+                if (!empty($matches)){
+                    $error_mes = trim($matches[0]);
+                    break;
+                }
+            }
+            return ["is_done" => false,"error_message"=>$error_mes];  
+        }
     }
 
 

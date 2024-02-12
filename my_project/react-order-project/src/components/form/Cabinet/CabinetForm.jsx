@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import PhoneInput from 'react-phone-input-2';
 
 export default function CabinetForm({typeForm}){
-    console.log("render")
     const navigate = useNavigate();
     const [data,setData] = useState('');
     const [datePicker,setDatePicker] = useState(null);
@@ -65,6 +64,7 @@ export default function CabinetForm({typeForm}){
                     setError("")
                     setMsg(response['mes'])
                     // navigate('/cab')
+                    window.location.reload()
                   }else{
                     setError(response['mes'])
                   }

@@ -37,7 +37,6 @@
   }
 }
 
-
 :root {
   --color-text-head: #1E0E62;
   --color-text-no: #EBEAED;
@@ -46,13 +45,10 @@
   --color-light-white: #ffffff54;
   --color-background-dark: #2F1893;
 
-
   /* --box-shadow: 0 2rem 3rem var(--color-light); */
   --box-shadow: 0 1rem 3rem rgb(132 139 200 / 40%);
   --f-size-standart: 16px;
-
 }
-
 
 * {
   margin: 0;
@@ -70,7 +66,6 @@ body {
 .container {
   /* margin: 0 auto; */
   /* padding: 20px 40px; */
-  
   user-select: none;
   font-family: Roboto;
   font-size: var(--f-size-standart);
@@ -79,27 +74,20 @@ body {
 
 
 header {
-  position: fixed; /* Фиксированное позиционирование */
-  width:100vw; 
-  /* width: 100vw; */
-
-  /* left: 0; right: 0; */
-  top: 0; /*Положение сверху */
+  position: fixed;
+  width: 100vw;
+  top: 0;
   /* background: LAVENDER; */
   background: aliceblue;
   padding: 20px 40px;
-  /* padding: 10px; */
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 100px; */
   color: var(--color-text-head);
   font-weight: 600;
   line-height: 20px;
-  /* background-color: var(--color-light-white); */
+  font-size: 20px;
   box-shadow: var(--box-shadow);
-  /* border-radius: 10px; */
   transition: all 0.3s ease;
-  /* text-transform: uppercase; */
 }
 
 
@@ -109,17 +97,17 @@ header:hover {
 
 header .nav {
   display: flex;
-  gap: 15px;
+  gap: 30px;
   cursor: pointer;
-  
+
 }
 
-header .icons {
+/* header .icons {
   display: flex;
   gap: 15px;
   transition: all 0.4s ease;
   cursor: pointer;
-}
+} */
 
 .nav div {
   transition: all 0.1s ease;
@@ -130,157 +118,172 @@ header .icons {
   transition: all 0.1s ease;
 }
 
-.nav div:hover,.icons span:hover,
+.nav div:hover,
+.icons span:hover,
 .icons img:hover {
   /* animation: bounce 1s; */
   /* animation: pulsing 2s; */
   transform: scale(1.2, 1.2);
 }
 
-
-
 .main_container {
-  margin-top:64px;
-}
-
-/* .main_container {
-  color: var(--color-text-head);
-  background-color: var(--color-light-white);
-  box-shadow: var(--box-shadow);
-  border-radius: 10px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 52px;
-  letter-spacing: 1.5px;
-  transition: all 0.4s ease;
-}
-.main_container:hover{
-  box-shadow: none;
-} */
-
-.main_container .wallpaper {
-  /* margin:50px; */
-  /* padding: 30px; */
-  /* text-align: center; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  display: flex;
-  /* gap:5px; */
-  
-}
-
-section#reserv,section#menu{
-  padding: 100px 0px;
-  width:100vw; 
-  /* text-align: start; */
-
-  /* box-shadow: var(--box-shadow);
-  transition: all 0.3s ease; */
-  /* margin-top: 150px; */ 
-}
-section#reserv .collapse .collapse {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  gap: 5px;
-  /* position: relative; */
-  /* left:-100px;  */
-  
-}
-section#menu .collapse .collapse{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  gap: 5px;
-  /* position: relative; */
-  /* left:-100px;   */
-  
-  /* justify-content: center; */
-  /* position: relative; */
-  /* left:-50px; */
-  
+  margin-top: 60px;
 }
 
 
-section#third{
-  height: 200px;
-}
-
-section#about {
-  padding: 100px;
-  width: 100%;
-  height: 400px;
-
-}
-
-
-.wallpaper{
-  background-image: url('../public/see_2.jpg');
-  /* height: 50vh;  */
-  /* width: 100vw;
-  height: 100vh; */
-  /* background-repeat: no-repeat;
-  background-size: 100% 75%; */
-
-  /* background-position: center; */
-
+#preview div {
+  background-image: url('../public/water.gif');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
-}
-/* .main_container .collapse{
-  border-radius: 10px;
-} */
-.main_container .collapse .mybutton {
-  /* padding: 10px;
-  
-  color: rgba(255, 255, 255, 0.8);
-  
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 52px;
-  letter-spacing: 1.5px;
-  display: inline-block;
-  cursor: pointer;
-  transition: all ease .1s; */
-  /* color: var(--color-text-head); */
-  /* background-color: var(--color-light-white); */
-  /* transition: border 0.1s; */
-
-
-  padding: 4px;
-    /* color: var(--color-text-head); */
-    color: rgba(255, 255, 255, 1);
-    /* background-color: var(--color-light-white); */
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 1.5px;
-    display: inline-block;
-    cursor: pointer;
-    transition: all ease .1s;
-    /* transition: border 0.1s;*/
-}
-
-.main_container .collapse .mybutton:hover{
-  /* background-color: #f1f1f1; */
-  /* border-radius: 20px;
-  border: 2px solid var(--color-text-no); */
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  /* transform: scale(1.1, 1.1);  */
-  color: var(--color-text-head);
-}
-
-
-/* .fade {
-  position: fixed;
-  background: black;
-  top: 0;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-} */
+}
+
+#preview div h1 {
+  color: azure;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  font-size: 100px;
+  opacity: 0.9;
+  transition: all 0.5s ease;
+}
+
+#preview div h1:hover {
+  opacity: 0.2;
+}
+
+span.error {
+  font-size: 14px;
+  color: rgb(225, 43, 43)
+}
+
+span.success {
+  font-size: 14px;
+  color: rgb(91, 233, 60)
+}
+
+/* для иконки react-календаря */
+.react-datepicker__input-container.react-datepicker__view-calendar-icon {
+  display: flex;
+  align-items: center;
+}
+
+section#about,
+section#menu {
+  padding: 180px 120px 200px 120px;
+}
+
+section h2.--title {
+  font-size: 60px;
+  color: var(--color-text-head);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+section .--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+section .--text {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 380px;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+section#about .about-image img {
+  border-radius: 30px;
+  width: 550px;
+}
+
+section#menu .menu-image {
+  width: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+
+}
+
+.collapse-button {
+  font-size: 60px;
+  color: #FFF;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.collapse-button:hover {
+  color: #4631a4;
+}
+
+#reserv .reserv-container {
+  /* margin-top: 200px; */
+  padding: 80px;
+  background-color: var(--color-text-head);
+  color: #FFF;
+}
+
+#reserv .reserv-container .collapse {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#reserv .reserv-container #calendarform{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:40px;
+  
+}
+
+#reserv .reserv-container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#reserv .reserv-container #calendarform input[type=submit]{
+    width: 200px;
+    height: 50px;
+    border: 2px solid rgb(255, 255, 255);
+    background: none;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    border-radius: 26px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+
+}
+
+#reserv .reserv-container #calendarform input[type=submit]:hover{
+  color: #1E0E62;
+  background: #FFF;
+}
+
+
+#reserv .reserv-container input[type=text]{
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+#reserv .reserv-container .calendar-container p{
+  margin-top: 10px;
+  text-align: center;
+}

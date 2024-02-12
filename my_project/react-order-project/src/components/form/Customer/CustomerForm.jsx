@@ -43,7 +43,6 @@ export default function CustomerForm({ulrStr}) {
         // const formatDate = `${year}-${formattedMonth}-${formattedDay}`;
         setSelectedBirthdate(date);
         setBirthdate(formatDate);
-
     };
 
     const handlePhoneChange = (value) => {

@@ -17,7 +17,8 @@ class Routes
             'logout' => 'login/logout',
             'user' => 'cabinet/check',
             'create' => 'cabinet/create',
-            'update' => 'cabinet/update'
+            'update' => 'cabinet/update',
+            'order' => 'order/setorder'
             // ...
         ];
     }

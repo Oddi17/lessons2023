@@ -33,8 +33,6 @@
     padding: 50px 50px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* gap: 20px; */
 }
 
 
@@ -81,8 +79,6 @@
 .crup-container form{
     display: flex;
     flex-direction: column;
-    /* align-items: start; */
-    /* justify-content: start; */
     gap: 15px;
     margin-top:30px;
 }

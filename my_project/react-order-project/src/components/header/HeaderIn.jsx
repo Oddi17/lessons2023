@@ -26,11 +26,21 @@ export default function Header() {
       navigate("/cab")
     }
 
+    const scrollToBlock = (elem) => {
+      const targetBlock = document.getElementById(elem);
+      if (targetBlock) {
+        targetBlock.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+
     return (
         <header>
         <h2>ST.Restaurant</h2>
           <div className="nav">
-            <div>О нас</div>
+            <Button handleClick={()=>scrollToBlock('about')}>О нас</Button>
+            <Button handleClick={()=>scrollToBlock('reserv')}>Забронировать</Button>
+            <Button handleClick={()=>scrollToBlock('menu')}>Меню</Button>
             <Button handleClick={cabinet}>Личный кабинет</Button>
             <Button handleClick={logoutSubmit}>Выйти</Button>
           </div>
