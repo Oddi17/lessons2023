@@ -1,6 +1,6 @@
 <?php 
 
-namespace itmocore\http;
+namespace orderproject\http;
 
 
 interface iWrapperArray {

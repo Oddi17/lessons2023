@@ -3,11 +3,13 @@
 namespace orderproject\models;
 
 use orderproject\lib\DataBase; 
+use orderproject\http\Request;
 
 class ModelCabinet {
     const GET_USER = " select * from customer where id_account = :id";
     const SET_USER = " insert into customer(name,dt_birth,sex,phone,id_account) values(:name,:birthdate,:gender,:phone,:id)";
     public function checkUser(){
+
         $id = $_GET['id'] ?? null;
         $dataReq = ["id"=>$id];
         $db = new DataBase();
@@ -27,7 +29,6 @@ class ModelCabinet {
         } 
     }
 
-    //TODO:если админ, то может добавлять бонусы клиентам
 
     public function updateUser(){
         $data= $_POST ?? null;

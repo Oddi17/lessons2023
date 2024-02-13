@@ -32,6 +32,7 @@ export default function Cabinet() {
             .then((response)=>{
                 if (response['res'] == 200) {
                     setDatauser(response['data'][0])
+                    
                 }else if (response['res'] == 401) {
                     setDatauser('')
                 }
