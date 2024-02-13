@@ -9,11 +9,9 @@ export default function Protected(props) {
     useEffect(()=>{
         let auth = localStorage.getItem("auth")
         if (!auth) {
-            // localStorage.setItem()
             navigate("/",{replace:true})
         }
     },[])
-
 
     return (
         <Component />

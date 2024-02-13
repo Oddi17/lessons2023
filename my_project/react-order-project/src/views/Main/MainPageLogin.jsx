@@ -3,7 +3,6 @@ import '../../components/collapse/Collapse.scss'
 import HeaderIn from '../../components/header/HeaderIn'
 import Footer from '../../components/footer/Footer' 
 import '../../components/footer/Footer.css' 
-// import OrderMain from '../../components/order/OrderMain'
 import OrderMain from '../../components/order/OrderMain'
 import img_about from '/about.jpg'
 import menu_1 from '/menu-1.jpg'
@@ -11,7 +10,6 @@ import menu_2 from '/menu-2.jpg'
 import menu_3 from '/menu-3.jpg'
 import menu_4 from '/menu-4.jpg'
 import menu_5 from '/menu-5.jpg'
-
 import ImageSlider from '../../components/slider/ImageSlider'
 
 

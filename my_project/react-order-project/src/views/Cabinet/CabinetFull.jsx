@@ -1,8 +1,23 @@
 import Button from '../../components/button/Button'
+import { useState } from 'react';
 
 export default function CabinetFull({data,handleBack,handleEdit}) {
+  
   const loginUser = localStorage.getItem('login')
 
+  const [selectedValue, setSelectedValue] = useState('');
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+  let res = ''
+  let result = []
+  let arrayOrders = data.order
+
+  if (arrayOrders) {
+    res = arrayOrders.replace("{", '').replace("}", '');
+    result = res.split(',');
+  }
+  
   return (
     <>
       <div className="customer-content-true">
@@ -51,6 +66,14 @@ export default function CabinetFull({data,handleBack,handleEdit}) {
             <div className="cell bonus">
               <span className='title' >Бонусы</span>
               <span className="name">{data.bonus} р.</span>
+            </div>
+            <div className="cell order">
+              <span className='title' >Бронирования</span>
+              <select className="name" id="dropdown" value={selectedValue} onChange={handleChange}>
+                  {result.map(item => (
+                    <option key={item} value={item}>{item}</option>
+                  ))}
+              </select>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function ImageSlider({images}) {
         style={{
           display: 'flex',
           transition: 'transform 1s ease', // Анимация сдвига
-          transform: `translateX(-${currentImageIndex * 400}px)`, // Ширина изображения 300px
+          transform: `translateX(-${currentImageIndex * 400}px)`, // Ширина изображения 400px
         }}
       >
         {images.map((image, index) => (

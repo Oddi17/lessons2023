@@ -10,7 +10,6 @@ export default function Header() {
         const urlLogout = "http://localhost:8080/logout"
         localStorage.clear()
         window.location.reload() //обновление страницы
-        // localStorage.setItem("login","")
         navigate("/")
         fetch(urlLogout,{
           method: 'GET',

@@ -11,7 +11,6 @@ export default function Cabinet() {
     const [isModalOpen, setModalOpen] = useState(false);
     const [titleBut,setTitleBut] = useState(null);
     const navigate = useNavigate()
-    // const [isUser,setIsUser] = useState(false)
     const [dataUser,setDatauser] = useState(null)
     const idUser = localStorage.getItem("id")
     const urlCheck = 'http://localhost:8080/user?id=' + idUser
@@ -32,7 +31,6 @@ export default function Cabinet() {
             .then((response)=>response.json())
             .then((response)=>{
                 if (response['res'] == 200) {
-                    // setIsUser(true)
                     setDatauser(response['data'][0])
                 }else if (response['res'] == 401) {
                     setDatauser('')
@@ -51,7 +49,7 @@ export default function Cabinet() {
     },[])
 
     const toCreate = () => {
-        navigate('/cab/creat')
+        navigate('/cab/create')
     }
     const toUpdate = () => {
         navigate('/cab/update')

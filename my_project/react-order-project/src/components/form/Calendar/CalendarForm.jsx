@@ -104,16 +104,16 @@ export default function CalendarForm() {
                   e.preventDefault();
                }}
             />
-            
+            <p>
+            {  
+            error !== "" ?
+            <span className='error'> {error} </span> :
+            <span className='success'> {msg} </span>
+            }
+          </p>
             <input type="submit" value="Забронировать" />
         </form>
-        <p>
-          {  
-          error !== "" ?
-          <span className='error'> {error} </span> :
-          <span className='success'> {msg} </span>
-          }
-        </p>
+        
       </>
     )
 }

@@ -1,4 +1,3 @@
-// import CalendarSamp from '../../components/calendar/CalendarMUI/CalendarSamp'
 import Collapse from '../../components/collapse/Collapse'
 import '../../components/collapse/Collapse.scss'
 import HeaderOut from '../../components/header/HeaderOut'
@@ -104,7 +103,6 @@ export default function MainPageLogout() {
                         </div>
                     </div>
                 </section>
-                
             </div>
             <Footer />
             <Modal 

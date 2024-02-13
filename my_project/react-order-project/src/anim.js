@@ -1,1 +1,0 @@
-let carouselList = document.querySelector(".")

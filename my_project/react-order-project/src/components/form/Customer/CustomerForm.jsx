@@ -32,17 +32,8 @@ export default function CustomerForm({ulrStr}) {
     };
     
     const handleBirthdateChange = (date) => {
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        // Добавляем ведущий ноль, если число меньше 10
-        const formattedDay = day < 10 ? `0${day}` : day;
-        const formattedMonth = month < 10 ? `0${month}` : month;
-        const formatDate = `${formattedDay}/${formattedMonth}/${year}`;
-        // const formatDate = `${year}-${formattedMonth}-${formattedDay}`;
         setSelectedBirthdate(date);
-        setBirthdate(formatDate);
+        setBirthdate(date.toLocaleString('ru-RU'));
     };
 
     const handlePhoneChange = (value) => {
@@ -57,10 +48,6 @@ export default function CustomerForm({ulrStr}) {
         formData.append('birthdate', birthdate);
         formData.append('id',localStorage.getItem('id'))
         event.preventDefault();
-        // console.log('Name:',firstname);
-        // console.log('Пол:', gender);
-        // console.log('Дата рождения:', birthdate);
-        // console.log('Телефон:', phone);
         
         fetch(ulrStr, {
             method: 'POST',
@@ -72,7 +59,6 @@ export default function CustomerForm({ulrStr}) {
                   if (response['res'] == 200) {
                     setError("")
                     setMsg(response['mes'])
-                    // console.log('yes')
                     navigate('/cab')
                   }else{
                     setError(response['mes'])
@@ -83,10 +69,7 @@ export default function CustomerForm({ulrStr}) {
               // setError(err)
                 console.log(err)
             })
-
       };
-
-    
 
     return(
     <form onSubmit={handleSubmit} id="customerForm">

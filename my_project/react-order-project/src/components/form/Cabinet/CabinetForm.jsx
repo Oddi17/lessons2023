@@ -7,7 +7,6 @@ export default function CabinetForm({typeForm}){
     const navigate = useNavigate();
     const [data,setData] = useState('');
     const [datePicker,setDatePicker] = useState(null);
-    // const [type,setType] = useState('');
     const [msg,setMsg] = useState('');
     const [error,setError] = useState('');
     const ulrStr = "http://localhost:8080/update"
@@ -22,15 +21,7 @@ export default function CabinetForm({typeForm}){
     },[msg])
        
     const handleBirthdateChange = (date) => {
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        // Добавляем ведущий ноль, если число меньше 10
-        const formattedDay = day < 10 ? `0${day}` : day;
-        const formattedMonth = month < 10 ? `0${month}` : month;
-        const formatDate = `${formattedDay}/${formattedMonth}/${year}`;
-        setData(formatDate);
+        setData(date.toLocaleString('ru-RU'));
         setDatePicker(date);
     };
 
@@ -49,10 +40,6 @@ export default function CabinetForm({typeForm}){
         formData.append('id',localStorage.getItem('id'))
         formData.append('column',type)
         event.preventDefault();
-        // console.log(formData.getAll('data'));
-        // console.log(formData.getAll('id'));
-        // console.log(formData.getAll('column'));
-        // return
         fetch(ulrStr, {
             method: 'POST',
             body: formData,
@@ -63,7 +50,6 @@ export default function CabinetForm({typeForm}){
                   if (response['res'] == 200) {
                     setError("")
                     setMsg(response['mes'])
-                    // navigate('/cab')
                     window.location.reload()
                   }else{
                     setError(response['mes'])
@@ -87,9 +73,7 @@ export default function CabinetForm({typeForm}){
                         onChange={handleChange} />
           
       }else if (typeForm === "Дата рождения") {
-        // setType("dt_birth")
         type = "dt_birth"
-
         formNeed = 
                 <DatePicker 
                     selected={datePicker} 
@@ -102,7 +86,6 @@ export default function CabinetForm({typeForm}){
                     dateFormat="dd.MM.yyyy" />
         
       }else if (typeForm === "Пол"){
-        // setType("sex")
         type = "sex"
         formNeed =    
                     <select value={data} name="sex" onChange={handleChange}>
@@ -113,7 +96,6 @@ export default function CabinetForm({typeForm}){
              
 
       }else if (typeForm === "Телефон") {
-        // setType("phone")
         type = "phone"
         formNeed =   
                     <PhoneInput

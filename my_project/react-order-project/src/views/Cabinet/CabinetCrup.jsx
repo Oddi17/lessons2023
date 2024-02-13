@@ -4,18 +4,11 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
 import { useNavigate } from 'react-router-dom';
 
-export default function CabinetCrup({type}){
+export default function CabinetCrup(){
 
     const navigate = useNavigate();
-
-    let urlCrup = ""
-    if ( type ==='create'){
-        urlCrup = "http://localhost:8080/create"
-    }else if (type === 'update'){
-        urlCrup = "http://localhost:8080/update"
-    }
-
-    
+    const urlCrup = "http://localhost:8080/create"
+   
     const handleBack = () => {
         navigate('/cab')
     }

@@ -38,7 +38,6 @@ export default function ModalCabinet({handleBut,title}) {
                     </Button>
                     <h2>{type}</h2>
                     <CabinetForm typeForm = {type}/>
-                    {/* <Button  handleClick={""}>Изменить</Button> */}
                 </div>   
             </div>
         </div>
