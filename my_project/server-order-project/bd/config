@@ -1,0 +1,4 @@
+server: localhost;
+username: postgres;
+password: 123;
+database: order;  
