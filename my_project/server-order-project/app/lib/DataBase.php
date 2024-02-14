@@ -91,7 +91,6 @@ class DataBase
         $db = $this->openDataBase();
         $query = "UPDATE customer SET $column = '$data' WHERE id_account = $id ";
         $stmt = $db->prepare($query);
-        // $stmt->bindParam(':data', $data);
         $stmt->execute();
     }
 
