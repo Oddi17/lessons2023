@@ -1,0 +1,31 @@
+.button {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 8px; // скорее всего надо будет удалить и для каждой кнопки свое
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &.primary {
+    border-color: var(--color-theme-primary);
+    // border-radius: 8px;
+    background-color: var(--color-theme-primary);
+    color: #fff;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  }
+
+  span:first-child {
+    display: flex;
+    align-items: center;
+  }
+  span:empty {
+    display: none;
+  }
+}

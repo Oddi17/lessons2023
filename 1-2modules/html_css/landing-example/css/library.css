@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+body {
+  margin: 0;
+  font-family: Inter;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0px 32px;
+}
+
+/* buttons */
+
+.button {
+  color: #667085;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  padding: 10px 18px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.button-primary {
+  border: 1px solid #7f56d9;
+  background: #7f56d9;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.button-primary:hover {
+  background: #6941c6;
+  border: 1px solid #6941c6;
+}
+
+.button-primary:active {
+  background: #7f56d9;
+  border: 1px solid #7f56d9;
+  box-shadow: 0px 0px 0px 4px #f4ebff, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.button-primary.disabled {
+  background: #e9d7fe;
+  border: 1px solid #e9d7fe;
+  cursor: not-allowed;
+}
+
+
+/* modals */
+
+.fade {
+  position: fixed;
+  background: black;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  margin: 0 auto;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+
+  width: 480px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  min-height: 630px;
+
+  /* Shadow/xl */
+  box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+}
+
+.button-primary.butpay {
+  width: 210px;
+  height: 44px;
+}
+
+.button-primary.butpay:first-child {
+  background: white;
+  border: 1px solid #d0d5dd;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  color: #344054;
+}
+
+.button-primary.butpay:first-child:hover {
+  background: gray;
+  border: 1px solid #62656b;
+}
+
+/*form*/
+
+.payment_form input {
+  outline: none;
+}
+
+/*input*/
+
+.payment_form label {
+  display: block;
+}
+
+.payment_form input::placeholder {}
+
+.payment_form .hint {
+  color: #667085;
+  margin-top: 6px ;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
+}
+
+.button {
+  cursor: pointer;
+}
+
+
+.header-nav .button:first-child{
+  transition: 1s linear;
+}
+
+
+.header-nav .button:first-child:hover{
+    border: solid 2px rgb(173, 173, 173);
+}
+
+/*С урока для авторизации*/
+
+

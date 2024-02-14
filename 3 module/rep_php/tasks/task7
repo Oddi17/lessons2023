@@ -1,0 +1,33 @@
+CREATE TABLE "history" (
+  "id" SERIAL PRIMARY KEY,
+  "id_question" INTEGER,
+  "num_edit" INTEGER,
+  "dt_edit" TIMESTAMP,
+  "old_question" TEXT NOT NULL
+) 
+
+CREATE OR REPLACE FUNCTION modify_question()
+ RETURNS TRIGGER
+ LANGUAGE PLPGSQL
+ AS
+ $$
+ DECLARE 
+    cnt_id integer;
+begin
+ SELECT count(*) INTO cnt_id
+	FROM history h 
+	where h.id_question = old.id;
+ IF NEW.name <> OLD.name then
+ INSERT INTO
+history(id_question,num_edit,dt_edit,old_question)
+ VALUES(old.id, cnt_id  ,now(),OLD.name);
+ END IF;
+RETURN NEW;
+END;
+ $$ 
+ 
+CREATE TRIGGER modify_question
+BEFORE UPDATE
+ ON question
+FOR EACH ROW
+EXECUTE PROCEDURE modify_question();

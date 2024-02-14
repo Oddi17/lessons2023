@@ -1,0 +1,20 @@
+* {
+    color:yellow;
+}
+.main {
+    background: red;
+    color:red;
+}
+.main div>ul {
+    background: violet;
+}
+.main ul li+li {
+    background: green;
+    color: white;
+}
+.main div p+p {
+    background: blue;
+}
+.main div p{
+    margin:0;
+}
