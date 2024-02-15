@@ -7,13 +7,6 @@ import 'air-datepicker/air-datepicker.css'
 
 //commit
 const validateForm = (dataObject, formElement) => {
-    // if (dataObject.title === '') return false
-    // if (dataObject.date_finish === '') return false
-    // return true
-
-
-    //totdo переделать параллельно, вместо последовательной проверки
-    // let isValid = true
     let isValidTitle = true
     let isValidDate = true
 
@@ -118,6 +111,7 @@ export const createAddTaskForm = (data) => {
             title: elem.querySelector('.title input').value,
             url: elem.querySelector('.url input').value,
             status: 'new',
+            count: `${Store.cnt}`,
             description: elem.querySelector('.description textarea').value,
             date_start: elem.querySelector('.date-start input').value,
             date_finish: elem.querySelector('.date-finish input').value
@@ -127,6 +121,8 @@ export const createAddTaskForm = (data) => {
 
         if (!data) {
             Store.tasks.push(formData)
+            Store.cnt = Store.cnt + 1
+            
         }else{
             Store.tasks.forEach((element, i) => {
                 if (element.id === data.id) {

@@ -1,13 +1,17 @@
+let currentInterval
+
 const Timer = () => {
-  const DateOn = document.querySelector('#time-to').value
-  if (DateOn === '') return
-  let DateOnTime = new Date(DateOn)
+  const dateOn = document.querySelector('#time-to').value
+  if (dateOn === '') return
+  let dateOnTime = new Date(dateOn)
   let currentTime = new Date()
-  console.log(DateOnTime)
+  console.log(dateOnTime)
   console.log(currentTime)
-  let timeDiff = currentTime - DateOnTime
-  if (timeDiff > 0) return
-  timeDiff = timeDiff * -1
+  let timeDiff = dateOnTime - currentTime
+  if (timeDiff <= 0) {
+    console.log("value error")
+    return
+  }
   console.log(timeDiff)
 
 
@@ -31,12 +35,14 @@ const Timer = () => {
   $hoursTime.innerHTML = hours
   $daysTime.innerHTML = days
 
-  //интервальная функция
-  setInterval(() => {
+  clearInterval(currentInterval)
+
+  currentInterval = setInterval(() => {
 
     if (seconds === 0 && days === 0 && hours === 0 && minutes === 0) {
       seconds = 0
       console.log('End of timer')
+      clearInterval(currentInterval)
       return
     }
     --seconds

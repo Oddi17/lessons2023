@@ -54,26 +54,18 @@ let createCarousel = (elemid, images, options) => {
   $mainCountainer.append($indicatorsContainer)
 
   let itemWidth = $carouselContainer.offsetWidth
-  // let translate = 0
-  // let loop = 1
   let imgQuantity = $carouselContainer.children.length
-  // let currentImg = 0
-
   let updateIndicators = () => {
     let arrFromCollection = Array.from($indicatorsContainer.children)
     arrFromCollection.forEach((elem, index) => {
-      // elem.className = 'dot'
-      // if (index === currentImg) {
-      //   elem.className = 'dot active'
-      // }
+
       elem.className = 'dot ' + (index === currentImg ? 'active' : '')
     })
   }
 
   let controlsClickHandler = (e) => {
-    // console.dir(e.target.classList.contains('prev'))
-    //Зацикливание
 
+    //Зацикливание
     if (e.target.classList.contains('prev')) {
       if (translate !== 0) {
         translate += itemWidth
@@ -91,7 +83,6 @@ let createCarousel = (elemid, images, options) => {
 
     currentImg = Math.abs(translate / itemWidth)
 
-    // console.log('index' + currentImg)
     updateIndicators()
 
     $carouselContainer.style.transform = 'translateX(' + translate + 'px)'
@@ -99,7 +90,6 @@ let createCarousel = (elemid, images, options) => {
   }
 
   let arrFromControls = Array.from($controlElements.children)
-  // console.log(arrFromControls,typeof(arrFromControls))
   arrFromControls.forEach((element) => {
     //тут происходят итерации цикла. перебор controlElements
     element.addEventListener('click', controlsClickHandler)

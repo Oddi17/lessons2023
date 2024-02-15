@@ -5,6 +5,13 @@ import { saveDataLS } from '../../controllers/localStorage'
 import { createAddTaskForm } from '../addtaskform/addtaskform'
 import { createModal } from '../modal/modal'
 import {gsap} from 'gsap'
+import '/avatars/1.png'
+import '/avatars/2.png'
+import '/avatars/3.png'
+import '/avatars/4.png'
+import '/avatars/5.png'
+import '/avatars/6.png'
+
 
 const removeTask = (id) => {
   Store.tasks.forEach((element, i) => {
@@ -42,19 +49,10 @@ export const createTask = (data) => {
   const elem = document.createElement('div')
   elem.className = 'task'
   elem.id = data.id
-  //const addTrashButton = createButton('trash','','delete')
-  //const addRewriteButton = createButton('pencil','','rewrite')
-  {
-    /* <div class='checkbox'>
-     </div>
-     <div class='avatar'>
-          <img src='./public/avatars/${data.id}.png'
-     </div> */
-  }
   elem.innerHTML = `
      <div class='cell name' data-index='${data.id}'>
           <input type="checkbox" class='draggable'>
-          <img src='./avatars/${data.id}.png'>
+          <img src='./avatars/${data.count}.png'>
           <div class='task-text'> 
                <div class='title'>${data.title}</div>
                <div class='url'>${data.url}</div>
@@ -77,11 +75,6 @@ export const createTask = (data) => {
      `
 
   //НАДО КАК-ТО РЕШИТЬ СО СТАТУСОМ
-
-  //const cellforBut = elem.children
-  //console.log(cellforBut[cellforBut.length-1])
-  //cellforBut[cellforBut.length-1].append(addTrashButton)
-  //cellforBut[cellforBut.length-1].append(addRewriteButton)
 
   elem.querySelector('.controls .remove').addEventListener('click', () => {
     removeTask(data.id)

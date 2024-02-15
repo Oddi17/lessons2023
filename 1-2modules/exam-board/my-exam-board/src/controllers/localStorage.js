@@ -1,5 +1,5 @@
 
-//commit
+
 export const saveDataLS = (key, data) => {
   localStorage.setItem('tasks', JSON.stringify(Store.tasks))
   //Можно расширить
